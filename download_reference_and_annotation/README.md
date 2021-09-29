@@ -5,6 +5,7 @@
   - [Genbank references](#genbank_ref)
     - [Obtaining primary chromosomes names](#obtain_names)
   - [Custom references](#custom_ref) 
+- [Download annotations (GFF)](#download_gff)
 - [Trouble shooting](#help_)
 - [Authors](#authors_)
 # <a name="uguide"></a> User's Guide
@@ -101,6 +102,20 @@ chr6
 ### <a name="custom_ref"></a> Custom references
 Create a new folder in the **Refseq/Standard** or **Refseq/Custom** directory and use WinSCP to upload your custom reference in _fastx_ format.
 Once the reference genome has been uploaded it must be prepared for the pipeline. See Prepare reference for pipeline 
+
+## <a name="download_gff"></a> Download annotations (GFF)
+It is possible to download the desired reference sequence directly onto the server through ftp. Navigate to the desired reference.
+For example the mouse (mus musculus) genome.
+1. click on the “FTP directory to RefSeq assembly as above for downloading the reference.
+2. Right click on the genomic.gff.gz file and copy the link:
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/135292243-f4bd05d8-1e83-449f-a443-a23d319fe20d.png">
+</p>
+3. Then download the annotation file into the reference folder:
+
+```
+wget --recursive --no-host-directories --cut-dirs=6 ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/635/GCA_000001635.8_GRCm38.p6/GCA_000001635.8_GRCm38.p6_genomic.gff.gz -P /home/ec2-user/Refseq/mouse_mus_musculus
+```
 
 ## <a name="help_"></a> Trouble shooting
 Contact CAJ or QAB
