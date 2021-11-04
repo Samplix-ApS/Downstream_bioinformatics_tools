@@ -44,6 +44,7 @@ with the following parameters:
 -i      Input-data path
 -b      Set to true to load basecalling tools (e.g. activate gpus)
 -p      Optional. Choose which port to use. Default is port 8089
+-x      Set to true to use secure port 4430
 ```
 
 # <a name="stop_docker"></a> Stop the docker container
@@ -57,7 +58,7 @@ python3 docker.py -s stop
 with the following parameters:
 
 ```
--s      Set to 'stop' to stop the docker container. 
+-s      Set to 'stop' to stop the docker container.
 ```
 
 # <a name="help_"></a> Trouble shooting
