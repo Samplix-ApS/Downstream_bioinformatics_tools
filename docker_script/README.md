@@ -24,9 +24,10 @@ python3 docker.py -i INPUT-DATA -r REFSEQ-DATA <optional>
 with the following parameters:
 
 ```
--i      Input-data path
--r      Refseq-data path
--p      Optional. Choose which port to use. Default is port 8089
+-i    Input-data path
+-r    Refseq-data path
+-p    Optional. Choose which port to use. Default is port 8089
+-x    Set to true to use secure port 4430
 ```
 
 # <a name="start_basecall"></a> Initiate the basecalling tools
@@ -46,7 +47,7 @@ with the following parameters:
 ```
 
 # <a name="stop_docker"></a> Stop the docker container
-The docker container can be stopped using the command below. If more than one container is activate, the user will presented with a choice of which container to stop. 
+The docker container can be stopped using the command below. If more than one container is activate, the user will presented with a choice of which container to stop.
 
 To initiate the container:
 ```
@@ -56,7 +57,7 @@ python3 docker.py -s stop
 with the following parameters:
 
 ```
--s      Set to stop to stop the docker container. 
+-s      Set to 'stop' to stop the docker container. 
 ```
 
 # <a name="help_"></a> Trouble shooting
