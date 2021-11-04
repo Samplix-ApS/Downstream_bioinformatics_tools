@@ -158,7 +158,7 @@ def docker_basecall(input_data, port_range, basecalling_tools, secure):
         if secure == 'false':
             call_docker = subprocess.Popen(['docker', 'run', '-td', '--gpus', 'all', '-v',input_data,'-p', port_range, docker_tools],stdout=subprocess.PIPE)
         if secure == 'true':
-            call_docker = subprocess.Popen(['docker', 'run', '-td', '--gpus', 'all', '-v',input_data,'-e','SECURE="true"','-p', port_range, docker_tools],stdout=subprocess.PIPE)
+            call_docker = subprocess.Popen(['docker', 'run', '-td', '--gpus', 'all', '-v',input_data,'-e','SECURE=true','-p', port_range, docker_tools],stdout=subprocess.PIPE)
         stdout, stderr = call_docker.communicate()
         docker_session=stdout.decode("utf-8").strip()[0:12]
         print('Docker container initiated:', docker_session)
