@@ -69,7 +69,11 @@ def docker_container_ID(stop_arg):
 
             return session_id
 
-        session_id = list_up[0][0]
+        try:
+            session_id = list_up[0][0]
+        except IndexError:
+            print('Docker does not seem to be running.')
+            quit()
 
         return session_id
 
