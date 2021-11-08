@@ -8,8 +8,11 @@ docker software installed and running from the following url.
 # Samplix docker image
 
 Samplix actively develop, build and push the following docker image to
-the docker hub register.  
+the docker hub registery.  
 **samplix/samplix_analysis_tools:latest**
+
+This image is available at our public repository
+<https://hub.docker.com/r/samplix/samplix_analysis_tools>
 
 You can pull this image running the following command  
 **docker pull samplix/samplix_analysis_tools:latest**
@@ -51,112 +54,133 @@ tools available in the image.
 | /pipelines/basecall         | 2.0.0       | /pipelines/basecall                      |
 | /pipelines/analysispipeline | 2.0.0       | Available at /pipelines/analysispipeline |
 
+Basecalling and enrichment mapping pipleine's executables can be accessed with in docker container by running the following commands
+```
+/pipelines/basecall -help
+```
+```
+/pipelines/analysispipeline -help
+```
+
+
 ## Web utility
 
 | **Webserver**                | **Version** | **Description**              |
 |------------------------------|-------------|------------------------------|
 | /web-utility/pipelinewebtool | 1.0.0       | /web-utility/pipelinewebtool |
-|                              |             |                              |
+
+This webserver starts as docker container entry point command and starts serving on HTTP(8080) or HTTPS(4430) ports depending on the docker container command. (See below)
+
 
 ## Python utility scripts
 
 | **Script**                              | **Description** |
 |-----------------------------------------|-----------------|
-| /web-utility/scripts/add_SAM_tag.py     |                 |
-| /web-utility/scripts/merge_scaffolds.py |                 |
-| /web-utility/scripts/prep_reference.py  |                 |
-|                                         |                 |
-|                                         |                 |
+| /web-utility/scripts/add_SAM_tag.py     | To add tags to alignment                |
+| /web-utility/scripts/merge_scaffolds.py | To merge scaffolds                |
+| /web-utility/scripts/prep_reference.py  | To prepare reference for enrichment mapping report pipeline                |
+
 
 # Mount points
 
-<table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 79%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Mount point</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>/refseq-data/</td>
-<td><p>Mount point for reference sequence data. Web server will look into this directory when searching and selecting for reference files through the web interface.</p>
-<p>This will also serve as destination directory for downloading and saving the reference data.</p></td>
-</tr>
-<tr class="even">
-<td>/input-data/</td>
-<td>Mount point for input data. Web server will look into this directory when searching for input files, input folders and when choosing save path for out put files.</td>
-</tr>
-</tbody>
-</table>
+| **Mount point** | **Description**                                                                                                         |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------|
+| /refseq-data | Mount point for reference sequence data. Web server will look into this directory when searching and selecting for reference files, bed files and Karyoplot files through the web interface. Refrenece sequence and annotations will be downloaded in this directory. Merge scaffolds and prepare reference tools will be saving output to this directory.|
+| /input-data | Mount point for input data. Web server will look into this directory when searching and selecting input files for enrichment mapping pipeline and basecalling pipeline. |
+
 
 # Internal webserver ports
 
 | **Port** | **Description**                                                                                  |
 |----------|--------------------------------------------------------------------------------------------------|
 | 8080     | Internal HTTP port. By default web server will start on this port                                |
-| 4430     | Internal HTTPS port. When web server is started in secure mode it will b available at this port. |
+| 4430     | Internal HTTPS port. When web server is started in secure mode it will start serving at this port. |
 
 # Command to run the docker image
 
 Pull latest docker image
-
+```
 docker pull samplix/samplix_analysis_tools:latest
+```
 
 ### Run docker image with webserver
 
 *HTTP Mode*
-
-docker run -td -v {absolutepath to input direcotry}:/input-data -v
-{absolute path to reference sequence directory}:/refseq-data -p
-{external port}:8080 samplix/samplix_analysis_tools:latest
-
+```
+docker run -td -v **[absolute path to input direcotry]**:/input-data -v
+**[absolute path to reference sequence directory]*:/refseq-data -p
+**[external port]**:8080 samplix/samplix_analysis_tools:latest
+```
 *HTTPS Mode*
-
-docker run -td -v {absolutepath to input direcotry}:/input-data -v
-{absolute path to reference sequence directory}:/refseq-data -e
-SECURE=true -p {external port}:4430
+```
+docker run -td -v [absolute path to input direcotry]:/input-data -v
+[absolute path to reference sequence directory]:/refseq-data -e
+SECURE=true -p [external port]:4430
 samplix/samplix_analysis_tools:latest
-
+```
 ### Run docker with GPU’s exposed to the container
 
 \*\* In order for GPU’s to be available to docker container following is
-required to be installed on server
+required to be downloaded and installed on server
 
--   Nvidia CUDA version 11.xx
+-   Nvidia CUDA version 11.xx <https://developer.nvidia.com/cuda-downloads>
 
--   Nvidia_container_runtime
+-   Nvidia_container_runtime <https://github.com/NVIDIA/nvidia-container-runtime>
 
-*HTTP Mode*
+*HTTP mode with GPU's*
 
-docker run -td –gpus all -v {absolutepath to input
-direcotry}:/input-data -v {absolute path to reference sequence
-directory}:/refseq-data -p {external port}:8080
+```
+docker run -td –gpus all -v [absolut epath to input
+direcotry]:/input-data -v [absolute path to reference sequence
+directory]:/refseq-data -p [external port]:8080
 samplix/samplix_analysis_tools:latest
 
-*HTTPS Mode*
+```
 
-docker run -td –gpus all -v {absolutepath to input
-direcotry}:/input-data -v {absolute path to reference sequence
-directory}:/refseq-data -e SECURE=true -p {external port}:4430
+*HTTPS mode with GPU's*
+
+```
+docker run -td –gpus all -v [absolute path to input
+direcotry]:/input-data -v [absolute path to reference sequence
+directory]:/refseq-data -e SECURE=true -p [external port]:4430
 samplix/samplix_analysis_tools:latest
+
+```
 
 # Useful docker commands
 
--   docker ps -a
+Display all containers, both running and stopped
+```
+docker ps -a
+```
 
--   docker images
+Displays all local docker images
+```
+docker images
+```
 
--   docker exec -it \[container id\] bash
+To access bash of currently running container
+```
+docker exec -it [Container id\] bash
+```
 
--   docker container prune
+To remove all stopped containers
+```
+docker container prune
+```
 
--   docker system prune -a
+To remove all images and containers from the server
+```
+docker system prune -a
+```
 
--   docker stop \[container id\]
+To stop a running container
+```
+docker stop [container id]
+```
 
--   docker rmi \[image id\]
+To delete a docker image
+```
+docker rmi [image id]
+```
+
