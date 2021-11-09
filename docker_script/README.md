@@ -6,6 +6,7 @@
 - [Initiate the docker container](#start_docker)
 - [Initiate the basecalling tools](#start_basecall)
 - [Stop the docker container](#stop_docker)
+- [Enter bash mode](#bash_docker)
 - [Trouble shooting](#help_)
 - [Authors](#authors_)
 
@@ -60,6 +61,26 @@ with the following parameters:
 ```
 -s      Set to 'stop' to stop the docker container.
 ```
+
+# <a name="bash_docker"></a> Enter bash mode
+The docker container has a bash mode allowing you to work within the docker. You will start in the input-data directory.
+
+To initiate bash mode:
+```
+python3 docker.py --bash true
+```
+
+with the following parameters:
+
+```
+--bash      Set to true to enter bash mode. Type exit to exit bash.
+```
+
+To exit bash mode simply type:
+```
+exit
+```
+
 
 # <a name="help_"></a> Trouble shooting
 
