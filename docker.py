@@ -18,69 +18,64 @@ def print_help():
     print('-s       Set to stop to stop the docker container. \n')
     print('-p       Optional. Choose which port to use. Default is port 8089\n')
     print('-x       Set to true to use secure port 4430\n')
+    print('--bash   Set to true to enter bash mode. Type exit to exit bash\n')
 
 
-def docker_container_ID(stop_arg):
-    if stop_arg == 'stop':
-        print('Obtaining docker Container ID')
-        call_docker = subprocess.Popen(['docker', 'ps', '-a'],stdout=subprocess.PIPE)
-        stdout, stderr = call_docker.communicate()
-        docker_ps=stdout.decode("utf-8")
-        docker_ps=docker_ps.split('\n')
+def docker_container_ID():
+    print('Obtaining docker Container ID')
+    call_docker = subprocess.Popen(['docker', 'ps', '-a'],stdout=subprocess.PIPE)
+    stdout, stderr = call_docker.communicate()
+    docker_ps=stdout.decode("utf-8")
+    docker_ps=docker_ps.split('\n')
 
-        list_up = []
-        list_exited = []
-        for line in docker_ps:
-            if len(line) > 1:
-                line_replace = re.sub('(?<=[^ ])( )(?=[^ ])', '_', line.lower())
-                line_split = line_replace.split()
-                # if line_split[4] == 'status':
-                #     list_up.append((line_split[0], line_split[4]))
-                #     list_exited.append((line_split[0], line_split[4]))
-                #     continue
+    list_up = []
+    list_exited = []
+    for line in docker_ps:
+        if len(line) > 1:
+            line_replace = re.sub('(?<=[^ ])( )(?=[^ ])', '_', line.lower())
+            line_split = line_replace.split()
 
-                if bool(re.match('up', line_split[4])):
-                    status = 'up'
-                    list_up.append((line_split[0], status, line_split[4]))
-                    continue
-                if bool(re.match('exited', line_split[4])):
-                    status = 'exited'
-                    list_exited.append((line_split[0], status, line_split[4]))
-                    continue
+            if bool(re.match('up', line_split[4])):
+                status = 'up'
+                list_up.append((line_split[0], status, line_split[4]))
+                continue
+            if bool(re.match('exited', line_split[4])):
+                status = 'exited'
+                list_exited.append((line_split[0], status, line_split[4]))
+                continue
 
-        if len(list_up) > 1 :
-            print('More than one docker container is running')
-            print('Which container should be stopped?')
+    if len(list_up) > 1 :
+        print('More than one docker container is running')
+        print('Which container should be stopped?')
 
-            df = pd.DataFrame(list_up)
-            df.columns = ['Container_ID', 'Status', 'Time']
-            print(df)
+        df = pd.DataFrame(list_up)
+        df.columns = ['Container_ID', 'Status', 'Time']
+        print(df)
 
-            match = 'false'
-            count = 0
-            while(match == 'false'):
-                if count >= len(list_up):
-                    print('Please provide correct Container_ID')
-                session_id = input('Container_ID: ')
-                for container_id, status, time in list_up:
-                    count += 1
-                    if container_id == session_id:
-                        match = 'true'
-
-            return session_id
-
-        try:
-            session_id = list_up[0][0]
-        except IndexError:
-            print('Docker does not seem to be running.')
-            quit()
+        match = 'false'
+        count = 0
+        while(match == 'false'):
+            if count >= len(list_up):
+                print('Please provide correct Container_ID')
+            session_id = input('Container_ID: ')
+            for container_id, status, time in list_up:
+                count += 1
+                if container_id == session_id:
+                    match = 'true'
 
         return session_id
 
-def docker_stop(stop_arg):
-    session_id = docker_container_ID(stop_arg)
+    try:
+        session_id = list_up[0][0]
+    except IndexError:
+        print('Docker does not seem to be running.')
+        quit()
 
+    return session_id
+
+def docker_stop(stop_arg):
     if stop_arg == 'stop':
+        session_id = docker_container_ID()
         print('Stopping docker container:', session_id)
         call_docker = subprocess.run(['docker', 'stop', session_id])
         print('Docker container stopped')
@@ -103,7 +98,7 @@ def docker_analysis(input_data, refseq_data, port_range, basecalling_tools, secu
         print('Input-data:', input_data)
         print('Refseq-data:', refseq_data)
 
-def validate_args(stop_arg, basecalling_tools, port, input_dir, refseq_dir, secure):
+def validate_args(stop_arg, basecalling_tools, port, input_dir, refseq_dir, secure, bash):
     if stop_arg == '':
         stop_arg = 'start'
 
@@ -148,7 +143,15 @@ def validate_args(stop_arg, basecalling_tools, port, input_dir, refseq_dir, secu
         print('Unknown argument for secure. Use "true" to set to true. Exiting program')
         quit()
 
-    return stop_arg, basecalling_tools, port, input_dir, refseq_dir, secure
+    if bash == '' or bash.lower() == 'false':
+        bash = 'false'
+    elif bash.lower() == 'true':
+        bash = 'true'
+    else:
+        print('Unknown argument for bash. Use "true" to set to true. Exiting program')
+        quit()
+
+    return stop_arg, basecalling_tools, port, input_dir, refseq_dir, secure, bash
 
 def get_dir(input_dir, refseq_dir):
     input_data = input_dir +':/input-data'
@@ -184,8 +187,17 @@ def get_port_range(port, secure):
 
         return port_range
 
-def docker_start(stop_arg, input_dir, refseq_dir, basecalling_tools, port, secure):
-    if stop_arg == 'start':
+def docker_bash(bash):
+    if bash == 'true':
+        session_id = docker_container_ID()
+        print('Initating docker bash in', session_id)
+        print('Type exit to exit bash')
+        call_docker = subprocess.run(['docker', 'exec','-it', session_id, 'bash'])
+
+
+
+def docker_start(stop_arg, input_dir, refseq_dir, basecalling_tools, port, secure, bash):
+    if stop_arg == 'start' and bash == 'false':
         input_data, refseq_data = get_dir(input_dir, refseq_dir)
 
         port_range = get_port_range(port, secure)
@@ -204,8 +216,9 @@ def main(argv):
     basecalling_tools=''
     port = ''
     secure = ''
+    bash = ''
     try:
-        opts, args = getopt.getopt(argv,"hi:r:s:b:p:x:",["help=", "inputdir=", "refseqdir=","stoparg=","basecallingtools=", "port=", "secure="])
+        opts, args = getopt.getopt(argv,"hi:r:s:b:p:x:a:",["help=", "inputdir=", "refseqdir=","stoparg=","basecallingtools=", "port=", "secure=", "bash="])
     except getopt.GetoptError:
         print('Please use the correct arguments.')
         print_help()
@@ -226,11 +239,14 @@ def main(argv):
             port = arg
         elif opt in ("-x", "--secure"):
             secure = arg
+        elif opt in ("-a", "--bash"):
+            bash = arg
 
 
-    stop_arg, basecalling_tools, port, input_dir, refseq_dir, secure = validate_args(stop_arg, basecalling_tools, port, input_dir, refseq_dir, secure)
+    stop_arg, basecalling_tools, port, input_dir, refseq_dir, secure, bash = validate_args(stop_arg, basecalling_tools, port, input_dir, refseq_dir, secure, bash)
 
-    docker_start(stop_arg, input_dir, refseq_dir, basecalling_tools, port, secure)
+    docker_start(stop_arg, input_dir, refseq_dir, basecalling_tools, port, secure, bash)
+    docker_bash(bash)
     docker_stop(stop_arg)
 
 if __name__ == "__main__":
