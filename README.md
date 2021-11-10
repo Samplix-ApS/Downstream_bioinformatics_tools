@@ -1,6 +1,5 @@
-# Bioinformatics tools
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/140942616-c6f2ee0f-3ed7-4113-bba7-39f3be87f787.png">
+<img src="https://user-images.githubusercontent.com/60882704/141110306-3e1234ec-0ce5-47f1-9bd5-0d3ad7aa232a.png">
 </p>
 
 
@@ -30,7 +29,9 @@
 Basecalling tools, Reference tools and Analysis tools needed for handling ONT and ILMN data. 
 
 ## <a name="get_started"></a> Getting started
-To run the sequencing webtools the docker session must be active and running on the respective servers.
+To run the bioinformatics tools, the docker session must be active and running. Use the [**docker script**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script) to start and stop the docker. 
+
+See the [**docker installation manual**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_install) for instruction on how to install the docker. 
 
 ## <a name="basecall_tools"></a> Basecalling tools
 
@@ -481,3 +482,5 @@ See description of fields here:
 | **Aligned chromosome tags** | Use aligned chromosomes as tags |
 
 
+# <a name="help_"></a> Trouble shooting
+# <a name="authors_"></a> Authors
