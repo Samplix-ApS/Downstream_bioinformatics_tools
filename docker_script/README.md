@@ -12,7 +12,21 @@
 
 # <a name="uguide"></a> User's Guide
 ## <a name="get_started"></a> Getting started
-The Samplix docker must be installed.
+The Samplix docker must be installed. See [**docker installation manual**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_install).
+
+1. Click on docker.py
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141150954-70c17528-f0f2-4f1a-96f3-3c6cf40f5d01.png">
+</p>
+
+2. In the top right, right click the _Raw_ button. Choose _Save link as..._.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141151777-79365920-f8ba-4ecd-9bbd-adaf41f0809c.png">
+</p>
+
+3. Save the file with the correct file extension, i.e. **_.py_**
 
 # <a name="start_docker"></a> Initiate the docker container
 When iniating the docker container the latest docker will be pulled and updated.
