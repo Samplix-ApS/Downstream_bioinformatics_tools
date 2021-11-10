@@ -488,22 +488,8 @@ See description of fields here:
 <img src="https://user-images.githubusercontent.com/60882704/141129284-3ea802f6-22c5-454b-a2ed-fef4497eb555.png" >
 </p>
 
-Two tags are currently possible: read name (RG) and all chromosomes which each read aligns to (RZ), e.g. if read A maps to chr_01, chr_05, and chr_08, the tag will be chr_01;chr_05;chr_08. This tag will be added to each instance of read A present in the S/BAM alignment file. Using these two tags, this allows for coloring by read name (enabling to see chimeric reads) and grouping alignments by chromosomes. This is highly useful when working with inserts.
+Add tags to alignment (SAM/BAM) files to ease viewing in IGV. Especially useful when working with pseudogenes and inserts. See [**Add tags to alignment manual**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/viewing_bam_files_ind_IGV#add_tag).
 
-Coloring by readname (tag RG) and grouping by chromosome (tag RZ): 
-
-<p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" >
-</p>
-
-Viewing reads mapped to insertion sequence and comparing to reads mapped to chromosome 18:
-
-<p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" >
-</p>
-
-
-**To run the add tags to alignment:**
 
 1. Click _Add tags to alignment_ under Analysis tools.
 
