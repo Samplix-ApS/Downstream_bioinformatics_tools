@@ -16,6 +16,7 @@
 - [Analysis tools](#analysis_tools)
   - [Enrichment mapping report](#enrich_report)
   - [Add tags to alignment](#add_tags)
+- [Other manuals](#manuals_)
 - [Trouble shooting](#help_)
 - [Authors](#authors_)
 
@@ -491,13 +492,13 @@ Two tags are currently possible: read name (RG) and all chromosomes which each r
 Coloring by readname (tag RG) and grouping by chromosome (tag RZ): 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/129158273-87011e96-d639-4697-8f76-495424ccf022.png" >
+<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" >
 </p>
 
 Viewing reads mapped to insertion sequence and comparing to reads mapped to chromosome 18:
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/129162641-04091ff4-a106-4ee1-9b1e-4f3fc9c3a8d1.png" >
+<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" >
 </p>
 
 
@@ -517,10 +518,6 @@ Viewing reads mapped to insertion sequence and comparing to reads mapped to chro
 </p>
 
 
-
-
-
-
 See description of fields here:
 
 | Field	| Description |
@@ -529,6 +526,14 @@ See description of fields here:
 | **Read name tags** | Use read names as tags |
 | **Aligned chromosome tags** | Use aligned chromosomes as tags |
 
+# <a name="manuals_"></a> Other manuals
+[Docker installation](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_install)
+
+[Docker script](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script)
+
+[Download references and annotations](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation)
+
+[Obtain primary assembly](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation#prim_)
 
 # <a name="help_"></a> Trouble shooting
 Contact samplix.com
