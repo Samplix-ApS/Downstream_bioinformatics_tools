@@ -24,9 +24,8 @@ IGV, integrative genomics viewer, is a high-performance, easy-to-use, interactiv
 
 BAM files can be viewed in IGV with associated annotation files. However, it can sometimes be necessary to process the bam and annotation file beforehand. 
 ### <a name="depend_"></a> Dependencies
-* python3
-* samtools
-* IGV
+* IGV installed locally
+
 ## <a name="view_bam"></a> IGV: View BAM file
 Load the BAM in **File->Load** from file. It is not necessary to load the associated index, as IGV locates it automatically.
 To view a BAM file it must be sorted and indexed using samtools (SAMtools sort and index).
