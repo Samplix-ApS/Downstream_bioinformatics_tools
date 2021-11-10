@@ -11,7 +11,9 @@
   - [Download annotation file](#download_annot)
   - [Rename chromosomes in annotation file](#rename_chromo)
   - [Sort and index annotation file for IGV](#sort_index_anno)
-  - [Bundle reference and annotations](#bundle_gff)  
+  - [Bundle reference and annotations](#bundle_gff)
+- [Add tags to alignment](#add_tag)  
+  - [IGV: View tags](#add_tag_view)   
 - [References](#refs)
 - [Trouble shooting](#help_)
 - [Authors](#authors_)
@@ -105,7 +107,7 @@ If the names of the primary assembly/chromosomes have been changed in the refere
 
 Use the following command:
 ```
-python3 gff_samplix.py -i ANNOTATION_FILE -c chromosome_names -r replacement_name <optional>
+python3 /webutility/scripts/gff_rename.py -i ANNOTATION_FILE -c chromosome_names -r replacement_name <optional>
 ```
 It can be run with the following parameters:
 ```
@@ -134,10 +136,47 @@ It is possible to 'bundle' the reference genome and annotations together using I
 <img src="https://user-images.githubusercontent.com/60882704/135485752-5bbccf87-cb41-45ac-916a-8cc6c5f54940.png">
 </p>
 
+## <a name="add_tag"></a> Add tags to alignment
+[Add tags to alignment](https://github.com/Samplix-ApS/Bioinformatics_tools#add_tags) (SAM/BAM) files to ease viewing in IGV. Especially useful when working with pseudogenes and inserts.
+Two tags are currently possible: read name (RG) and all chromosomes which each read aligns to (RZ), e.g. if read A maps to chr_01, chr_05, and chr_08, the tag will be chr_01;chr_05;chr_08. This tag will be added to each instance of read A present in the S/BAM alignment file. 
+Using these two tags, this allows for coloring by read name (enabling to see chimeric reads) and grouping alignments by chromosomes. This is highly useful when working with inserts. 
+
+Coloring and grouping by readname (tag RG):
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" width="300" height= "300">
+</p>
+
+
+Coloring and grouping by chromosome (tag RZ):
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" width="300" height= "300">
+</p>
+
+
+Coloring by readname (tag RG) and grouping by chromosome (tag RZ): 
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" width="300" height= "300">
+</p>
+
+Viewing reads mapped to insertion sequence and comparing to reads mapped to chromosome 18:
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" width="300" height= "300">
+</p>
+
+### <a name="add_tag_view"></a> IGV: View tags
+In IGV it is recommended to color by tag RG (read name) and group by tag RZ (mapped chromosomes). Sometimes it is necessary to group by tag RG, color by tag RG, and then group by tag RZ to get correct colors out. 
+
+To view two different sites in the alignment, it is recommended to save the IGV session, close it, and open two new seperate windows. It is necessary to save, as the colors change upon saving, however, grouping is not affected. 
+
 ## <a name="refs"></a> References
 IGV: http://software.broadinstitute.org/software/igv/UserGuide
 
 SAMtools: http://www.htslib.org/doc/samtools.html
+
 ## <a name="help_"></a> Trouble shooting
 Contact CAJ
 
