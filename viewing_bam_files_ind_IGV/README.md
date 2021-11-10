@@ -8,7 +8,7 @@
 - [IGV: Adding a new reference](#add_ref)
 - [IGV: Custom bed track](#custom_bed)
 - [IGV: Add annotation file (GFF)](#add_annot)
-  - [Download annotation file](#download_annot)
+  - [Load annotation file](#load_annot)
   - [Rename chromosomes in annotation file](#rename_chromo)
   - [Sort and index annotation file for IGV](#sort_index_anno)
   - [Bundle reference and annotations](#bundle_gff)
@@ -83,20 +83,10 @@ It is possible to add your own custom bed file track to IGV. IGV bed files use a
 </p>
 
 ## <a name="add_annot"></a> IGV: Add annotation file (GFF)
-### <a name="download_annot"></a>Download and load annotation file
-See download reference and annotations in the repository to download reference to server.
+### <a name="load_annot"></a>Load annotation file
+See [download reference and annotations](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation) in the repository to download to server.
 
-To download to local computer:
-1. Click on _Download Assembly_ and navigate to the Genomic GFF (.gff).
-<p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/135450493-3b3201ea-bc82-4c1c-814d-de06fb83f056.png" width="500" height="300">
-</p>
-
-2. Click download
-
-3. Unzip the .tar file into the reference folder using 7-zip, WinZip or a similar program.
-
-4. In IGV navigate to _File->Load from file_ and load the annotation.gff.gz file. This can take a while depending on the size of the annotation file.
+1. In IGV navigate to _File->Load from file_ and load the annotation.gff.gz file. This can take a while depending on the size of the annotation file.
 <p align="center">
 <img src="https://user-images.githubusercontent.com/60882704/135452336-925eeccf-d2a8-4a21-856e-23793ace0dc7.png">
 </p>
@@ -172,9 +162,9 @@ In IGV it is recommended to color by tag RG (read name) and group by tag RZ (map
 To view two different sites in the alignment, it is recommended to save the IGV session, close it, and open two new seperate windows. It is necessary to save, as the colors change upon saving, however, grouping is not affected. 
 
 ## <a name="refs"></a> References
-IGV: http://software.broadinstitute.org/software/igv/UserGuide
+[IGV](http://software.broadinstitute.org/software/igv/UserGuide)
 
-SAMtools: http://www.htslib.org/doc/samtools.html
+[SAMtools](http://www.htslib.org/doc/samtools.html)
 
 ## <a name="help_"></a> Trouble shooting
 Contact CAJ
