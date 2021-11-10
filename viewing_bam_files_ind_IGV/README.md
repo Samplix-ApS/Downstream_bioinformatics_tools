@@ -55,7 +55,7 @@ To sort and index a BAM file in IGV:
 
 ## <a name="add_ref"></a> IGV: Adding a new reference
 To add a new reference genome to IGV navigate to Genomes -> Load genomes from file.
-IGV automatically indexes a new reference sequence. This can take a good while if the reference is large. Until the reference is indexed, the chromosomes of the loaded genome will not be shown. It can seem as if the program is stalling or has crashed, but it is just indexing. It is possible to save time by indexing the reference yourself, using _samtools faidx_ on the server.
+IGV automatically indexes a new reference sequence. This can take a good while if the reference is large. Until the reference is indexed, the chromosomes of the loaded genome will not be shown. It can seem as if the program is stalling or has crashed, but it is just indexing. It is possible to save time by indexing the reference yourself, using _samtools faidx_ in the docker bash. See [**docker script**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script#bash_docker) on how to enter docker bash.
 ```
 samtools faidx REFERENCE 
 ```
@@ -84,7 +84,7 @@ It is possible to add your own custom bed file track to IGV. IGV bed files use a
 
 ## <a name="add_annot"></a> IGV: Add annotation file (GFF)
 ### <a name="load_annot"></a>Load annotation file
-See [download reference and annotations](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation) in the repository to download to server.
+See [**download reference and annotations**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation) in the repository to download to server.
 
 1. In IGV navigate to _File->Load from file_ and load the annotation.gff.gz file. This can take a while depending on the size of the annotation file.
 <p align="center">
@@ -92,7 +92,7 @@ See [download reference and annotations](https://github.com/Samplix-ApS/Bioinfor
 </p>
 
 ### <a name="rename_chromo"></a>Rename chromosomes in annotation file
-If the names of the primary assembly/chromosomes have been changed in the reference sequence, it is necessary to also change the names in the annotation file.
+If the names of the primary assembly/chromosomes have been changed in the reference sequence, it is necessary to also change the names in the annotation file. See [**docker script**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script#bash_docker) on how to enter docker bash.
 
 Use the following command:
 ```
@@ -126,7 +126,7 @@ It is possible to 'bundle' the reference genome and annotations together using I
 </p>
 
 ## <a name="add_tag"></a> Add tags to alignment
-[Add tags to alignment](https://github.com/Samplix-ApS/Bioinformatics_tools#add_tags) (SAM/BAM) files to ease viewing in IGV. Especially useful when working with pseudogenes and inserts.
+[**Add tags to alignment**](https://github.com/Samplix-ApS/Bioinformatics_tools#add_tags) (SAM/BAM) files to ease viewing in IGV. Especially useful when working with pseudogenes and inserts.
 Two tags are currently possible: read name (RG) and all chromosomes which each read aligns to (RZ), e.g. if read A maps to chr_01, chr_05, and chr_08, the tag will be chr_01;chr_05;chr_08. This tag will be added to each instance of read A present in the S/BAM alignment file. 
 Using these two tags, this allows for coloring by read name (enabling to see chimeric reads) and grouping alignments by chromosomes. This is highly useful when working with inserts. 
 
