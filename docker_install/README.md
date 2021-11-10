@@ -123,9 +123,12 @@ samplix/samplix_analysis_tools:latest
 \*\* In order for GPU’s to be available to docker container following is
 required to be downloaded and installed on server
 
--   Nvidia CUDA version 11.xx <https://developer.nvidia.com/cuda-downloads>
+#### Nvidia CUDA version 11.xx 
+-   <https://developer.nvidia.com/cuda-downloads>
 
--   Nvidia_container_runtime <https://github.com/NVIDIA/nvidia-container-runtime>
+#### Nvidia_container_runtime 
+  -   <https://github.com/NVIDIA/nvidia-container-runtime>
+  -   <https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html>
 
 *HTTP mode with GPU's*
 
