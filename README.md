@@ -535,4 +535,7 @@ Contact samplix.com
 
 # <a name="authors_"></a> Authors
 Camille Johnston (CAJ)
+
 Qammar Abbas (QAB)
+
+![image](https://user-images.githubusercontent.com/60882704/141129952-59dc1b46-cac6-41bc-a4b4-eb6cf9c49cb9.png)
