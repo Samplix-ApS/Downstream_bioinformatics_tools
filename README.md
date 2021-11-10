@@ -59,7 +59,7 @@ To run the basecalling pipeline:
 2. Fill out all the fields in the form and click _Next_. 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/140944287-df16d75c-9d09-4d87-a0a8-2cab83ad3336.png" width="500" height="410">
+<img src="https://user-images.githubusercontent.com/60882704/140944287-df16d75c-9d09-4d87-a0a8-2cab83ad3336.png" >
 
 
 See description of fields here:
@@ -77,10 +77,17 @@ See description of fields here:
 3. A config file has now been generated. Click _Run the pipeline_.  
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" width="300" height="300">
+<img src="https://user-images.githubusercontent.com/60882704/141100922-322a1456-77f3-43a9-8d4b-2f01cb830b9f.png" >
 </p>
 
-4. An email will be sent to the provided e-mail address upon completion.
+
+
+4. An e-mail will be sent to the provided e-mail address upon completion.
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141101093-2bbe9142-113f-44f4-9350-67e3f497411a.png" >
+</p>
+
+
 
 ### <a name="basecalling_report"></a> Basecalling report
 Generates a basecalling report in html-format on already basecalled data with pycoQC. 
@@ -95,11 +102,8 @@ Generates a basecalling report in html-format on already basecalled data with py
 2. Fill out the form and click _Run_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/140946285-9b2882c4-4bb2-4ed2-b34f-9164aeeca7fe.png" width="500" height="395">
+<img src="https://user-images.githubusercontent.com/60882704/141108508-1786ef7e-31e6-4b44-bf92-9e65fe37b251.png" >
 </p>
-
-3. An email will be sent to the provided e-mail address upon completion.
-
 
 See description of fields here:
 
@@ -110,7 +114,15 @@ See description of fields here:
 |   **BAM file** |   Optional. Provide to also receive alignment data  |
 |   **Output file name**   |   Optional. Change report name. Default is basecalling_report.html    |
 
-3. It will run immediately. 
+
+
+3. It will run immediately. An email will be sent to the provided e-mail address upon completion.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141109988-c8d378d6-4bfe-4fdc-a364-bf2c5efc4f24.png" >
+</p>
+
+
 
 ## <a name="ref_tools"></a> Reference tools
 <p align="center">
@@ -136,7 +148,7 @@ See the download references manual on how to obtain refseq and genbank ftp links
 2. Fill out the form and click _Download_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141085401-97dc55f6-6492-4048-8a25-cc28fb40c366.png" width="500" height="200">
+<img src="https://user-images.githubusercontent.com/60882704/141085401-97dc55f6-6492-4048-8a25-cc28fb40c366.png" >
 </p>
 
 
@@ -153,7 +165,7 @@ See description of fields here:
 3. It will run immediately. 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141086040-eeb94fcd-73ee-4265-bea4-9e3a6f39048c.png" width="500" height="200">
+<img src="https://user-images.githubusercontent.com/60882704/141086040-eeb94fcd-73ee-4265-bea4-9e3a6f39048c.png" >
 </p>
 
 
@@ -169,7 +181,7 @@ See description of fields here:
 2. Fill out the form and click _Download_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141086252-25cb975d-891b-4ab1-a2a8-09ce9e4b49de.png" width="500" height="180" >
+<img src="https://user-images.githubusercontent.com/60882704/141086252-25cb975d-891b-4ab1-a2a8-09ce9e4b49de.png">
 </p>
 
 
@@ -185,7 +197,7 @@ See description of fields here:
 3. It will run immediately. 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141086954-644a4237-fde0-46bc-8c88-45fa5c0c139d.png" width="500" height="180" >
+<img src="https://user-images.githubusercontent.com/60882704/141086954-644a4237-fde0-46bc-8c88-45fa5c0c139d.png" >
 </p>
 
 
@@ -208,7 +220,7 @@ If your reference contains a primary assembly, create a list of these chromosome
 2. Fill out the form and click _Next_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141087105-a6fc3b0f-d6e2-4788-b9e1-c3e0cf00eb1f.png" width="500" height="180">
+<img src="https://user-images.githubusercontent.com/60882704/141087105-a6fc3b0f-d6e2-4788-b9e1-c3e0cf00eb1f.png" >
 </p>
 
 
@@ -223,7 +235,7 @@ See description of fields here:
 3. Fill out the rest of the form and click _Run_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141087524-857df035-d897-4d42-ba3a-435259661b14.png" width="500" height="500" >
+<img src="https://user-images.githubusercontent.com/60882704/141087524-857df035-d897-4d42-ba3a-435259661b14.png">
 </p>
 
 
@@ -240,8 +252,9 @@ See description of fields here:
 4. It will run immediately. 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141087811-187c1107-2806-4350-9375-b26e97118796.png" width="500" height="500" >
+<img src="https://user-images.githubusercontent.com/60882704/141098182-7396659f-35d0-4dba-bb17-abee1c68f22f.png" >
 </p>
+
 
 
 5. Continue to prepare reference
@@ -273,7 +286,7 @@ Generate the following files:
 2. Fill out the form and click _Next_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141087988-0c109442-9f17-4dcd-a8b5-19b55a574abc.png" width="500" height="180">
+<img src="https://user-images.githubusercontent.com/60882704/141087988-0c109442-9f17-4dcd-a8b5-19b55a574abc.png" >
 </p>
 
 
@@ -287,7 +300,7 @@ See description of fields here:
 3. Fill out the rest of the form and click _Run_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141088943-cab71032-e08d-4edb-85d1-0d42b5356bac.png" width="500" height="560">
+<img src="https://user-images.githubusercontent.com/60882704/141088943-cab71032-e08d-4edb-85d1-0d42b5356bac.png" >
 </p>
 
 
@@ -305,7 +318,7 @@ See description of fields here:
 4. It will run immediately. 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141089527-872d8c14-5d2c-4361-b0f1-2eabc301dfb3.png" width="500" height="500">
+<img src="https://user-images.githubusercontent.com/60882704/141089527-872d8c14-5d2c-4361-b0f1-2eabc301dfb3.png">
 </p>
 
 5. Continue to Enrichment mapping report
@@ -341,12 +354,12 @@ Mapping is performed with minimap2 and bwa-mem for ONT and ILMN data, respective
 
 
 
-3. Fill out the form.
+3. Fill out the form and click _Create config file_.
 
 * Report parameters:
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141092977-c34649bc-c068-4776-85ce-1513557fdb00.png" width="500" height="200">
+<img src="https://user-images.githubusercontent.com/60882704/141092977-c34649bc-c068-4776-85ce-1513557fdb00.png">
 </p>
 
 
@@ -354,21 +367,21 @@ Mapping is performed with minimap2 and bwa-mem for ONT and ILMN data, respective
    * File paths for ONT or ILMN
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141093267-0a800060-8ed4-4447-983b-780a3f3611a9.png" width="1000" height="250">
+<img src="https://user-images.githubusercontent.com/60882704/141093267-0a800060-8ed4-4447-983b-780a3f3611a9.png">
 </p>
 
 
    * Region of Interest:
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141093503-8d3cd64c-8ceb-4369-af6b-f4edf4b5437c.png" width="500" height="450">
+<img src="https://user-images.githubusercontent.com/60882704/141093503-8d3cd64c-8ceb-4369-af6b-f4edf4b5437c.png">
 </p>
 
 
    * Other settings
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141094855-55f1b332-eaae-4079-8fa5-02533531d46e.png" width="500" height="270">
+<img src="https://user-images.githubusercontent.com/60882704/141094855-55f1b332-eaae-4079-8fa5-02533531d46e.png" >
 </p>
 
 
@@ -376,8 +389,10 @@ Mapping is performed with minimap2 and bwa-mem for ONT and ILMN data, respective
    * Advanced Settings for ONT or ILMN
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141095942-fa5001e3-f01f-4979-8028-779bbe22cb4f.png" width="1000" height="300" >
+<img src="https://user-images.githubusercontent.com/60882704/141098689-e58ff53f-7208-48c6-be3c-cee8e4268095.png" >
 </p>
+
+
 
 
 
@@ -406,18 +421,19 @@ See description of fields here:
 | **minimap2 additional arguments** | Advanced. Provide additional mapping arguments to minimap2. |
 | **BWA-MEM additional arguments**  | Advanced. Provide additional mapping arguments to bwa-mem |
 
-4. Click _Create config file_.
+4. Click _Run the pipeline_ to run the enrichment mapping report pipeline. An e-mail will be sent upon completion
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141096613-d8f3b23f-06ce-486b-ba40-64309a8f6460.png" width="500" height="560" >
+<img src="https://user-images.githubusercontent.com/60882704/141096613-d8f3b23f-06ce-486b-ba40-64309a8f6460.png" >
 </p>
 
 
 5. Click _Run the pipeline_ to run the enrichment mapping report pipeline. An e-mail will be sent upon completion
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138112094-da2ddfd4-120b-4ded-947b-435f33d1a40f.png" >
+<img src="https://user-images.githubusercontent.com/60882704/141098939-8ede6861-d0f5-4631-a372-52d12b817bf2.png" >
 </p>
+
 
 
 ### <a name="add_tags"></a> Add tags to alignment
@@ -441,15 +457,18 @@ Viewing reads mapped to insertion sequence and comparing to reads mapped to chro
 1. Click _Add tags to alignment_ under Analysis tools.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138288954-870c68ed-d570-4390-85ea-eb5de3d96eaa.png" >
+<img src="https://user-images.githubusercontent.com/60882704/141099272-14f5cdea-27f5-430e-bab8-fdcfb5960183.png" >
 </p>
 
 
 2. Fill out the form.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" >
+<img src="https://user-images.githubusercontent.com/60882704/141100058-8de36202-672f-4fdd-b7ba-26b29069c21f.png" >
 </p>
+
+
+
 
 
 
