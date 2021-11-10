@@ -99,8 +99,9 @@ See description of fields here:
 
 ### <a name="basecalling_report"></a> Basecalling report
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" width="300" height="300" >
+<img src="https://user-images.githubusercontent.com/60882704/141132543-b425f7fe-76c6-40b6-aefe-15c0d4a1a0ee.png" >
 </p>
+
 
 
 
