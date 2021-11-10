@@ -23,8 +23,9 @@
 
 # <a name="uguide"></a> User's Guide
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138285189-fa4a4412-3963-4812-b26a-dc46016493af.png">
+<img src="https://user-images.githubusercontent.com/60882704/141080729-e0cbf1b2-3092-45dc-9b20-10d144a499f5.png">
 </p>
+
 
 Basecalling tools, Reference tools and Analysis tools needed for handling ONT and ILMN data. 
 
@@ -135,8 +136,10 @@ See the download references manual on how to obtain refseq and genbank ftp links
 2. Fill out the form and click _Download_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/140947345-6bcd1518-9b29-4b1f-a06c-53dd947b4c21.png" width="500" height="200">
+<img src="https://user-images.githubusercontent.com/60882704/141085401-97dc55f6-6492-4048-8a25-cc28fb40c366.png" width="500" height="200">
 </p>
+
+
 
 
 See description of fields here:
@@ -148,6 +151,11 @@ See description of fields here:
 |   **Subdirectory**   |   Generate new subdirectory in main directory   |
 
 3. It will run immediately. 
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141086040-eeb94fcd-73ee-4265-bea4-9e3a6f39048c.png" width="500" height="200">
+</p>
+
 
 
 ### <a name="download_annot"></a> Download annotations
@@ -161,8 +169,10 @@ See description of fields here:
 2. Fill out the form and click _Download_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/140948052-f90decab-9ffd-4e39-8a72-e3f186eaf1fd.png" width="500" height="180" >
+<img src="https://user-images.githubusercontent.com/60882704/141086252-25cb975d-891b-4ab1-a2a8-09ce9e4b49de.png" width="500" height="180" >
 </p>
+
+
 
 See description of fields here:
 
@@ -173,6 +183,13 @@ See description of fields here:
 
 
 3. It will run immediately. 
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141086954-644a4237-fde0-46bc-8c88-45fa5c0c139d.png" width="500" height="180" >
+</p>
+
+
+
 
 ### <a name="merge_scaffold"></a> Merge scaffolds
 Many genomes consist of the primary assembly and scaffolds, or entirely of scaffolds, i.e. the human genome consists of 24 sequences in the primary assembly and >600 scaffold (alternative references) sequences. It can quickly become meaningless to map to this many scaffolds, and therefore it is recommended to merge the scaffolds to avoid  ‘losing’ information by not including the them. It is also recommended to use merge scaffolds if your assembly only contains scaffolds and contigs.
@@ -191,7 +208,7 @@ If your reference contains a primary assembly, create a list of these chromosome
 2. Fill out the form and click _Next_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/140949270-dbbe904e-0415-44dc-84cf-327ecd4e27c6.png" width="500" height="180">
+<img src="https://user-images.githubusercontent.com/60882704/141087105-a6fc3b0f-d6e2-4788-b9e1-c3e0cf00eb1f.png" width="500" height="180">
 </p>
 
 
@@ -206,10 +223,8 @@ See description of fields here:
 3. Fill out the rest of the form and click _Run_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/140950535-ccd970e0-44f4-4370-ac3d-c300d8508430.png" width="500" height="500" >
+<img src="https://user-images.githubusercontent.com/60882704/141087524-857df035-d897-4d42-ba3a-435259661b14.png" width="500" height="500" >
 </p>
-
-
 
 
 See description of fields here:
@@ -225,8 +240,9 @@ See description of fields here:
 4. It will run immediately. 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/140951259-8291ed95-0146-4121-a81b-202c1d1d754a.png" width="500" height="500" >
+<img src="https://user-images.githubusercontent.com/60882704/141087811-187c1107-2806-4350-9375-b26e97118796.png" width="500" height="500" >
 </p>
+
 
 5. Continue to prepare reference
 
@@ -257,7 +273,7 @@ Generate the following files:
 2. Fill out the form and click _Next_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/140951710-755aeafa-868e-4e47-8240-5792d940b109.png" width="500" height="180">
+<img src="https://user-images.githubusercontent.com/60882704/141087988-0c109442-9f17-4dcd-a8b5-19b55a574abc.png" width="500" height="180">
 </p>
 
 
@@ -271,7 +287,7 @@ See description of fields here:
 3. Fill out the rest of the form and click _Run_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" width="300" height="300">
+<img src="https://user-images.githubusercontent.com/60882704/141088943-cab71032-e08d-4edb-85d1-0d42b5356bac.png" width="500" height="560">
 </p>
 
 
@@ -289,9 +305,10 @@ See description of fields here:
 4. It will run immediately. 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/140952715-18d92f03-cbbf-4abc-acb9-b6cd278a327e.png" width="500" height="500">
+<img src="https://user-images.githubusercontent.com/60882704/141089527-872d8c14-5d2c-4361-b0f1-2eabc301dfb3.png" width="500" height="500">
 </p>
 
+5. Continue to Enrichment mapping report
 
 ## <a name="analysis_tools"></a> Analysis tools
 
@@ -312,15 +329,16 @@ Mapping is performed with minimap2 and bwa-mem for ONT and ILMN data, respective
 1. Click _Enrichment mapping report_ under Analysis tools.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138098832-26bef526-5be3-48c7-9853-aa5275dffbab.png" >
+<img src="https://user-images.githubusercontent.com/60882704/141082242-92800276-fff9-4aea-89e3-5fe0cdb87ffe.png" >
 </p>
 
 
-2. Choose between ONT and ILMN. Click on create a config file or upload an existing config file. 
+2. Click on Create ONT or ILMN config file or upload existing config file: 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138101108-af9b94d3-5bfc-4b2c-b43a-c4d6d3326c31.png" >
+<img src="https://user-images.githubusercontent.com/60882704/141082788-c53ea930-f7c6-4cc3-9b81-4f269ad0ae2d.png" >
 </p>
+
 
 
 3. Fill out the form.
@@ -328,33 +346,40 @@ Mapping is performed with minimap2 and bwa-mem for ONT and ILMN data, respective
 * Report parameters:
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138105942-b446f219-77ee-4f07-aecd-717d28f986fd.png" width="300" height="320">
+<img src="https://user-images.githubusercontent.com/60882704/141092977-c34649bc-c068-4776-85ce-1513557fdb00.png" width="500" height="200">
 </p>
+
+
 
    * File paths for ONT or ILMN
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138106292-5292bdc9-f759-4da2-8417-53a29a925980.png" width="600" height="300">
+<img src="https://user-images.githubusercontent.com/60882704/141093267-0a800060-8ed4-4447-983b-780a3f3611a9.png" width="1000" height="250">
 </p>
+
 
    * Region of Interest:
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138106654-6dcc8151-6ca2-41e0-a157-f92a45797872.png" width="500" height="465">
+<img src="https://user-images.githubusercontent.com/60882704/141093503-8d3cd64c-8ceb-4369-af6b-f4edf4b5437c.png" width="500" height="450">
 </p>
+
 
    * Other settings
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138106848-fa63499e-8d90-48f3-a1e9-f3296be6ea06.png" width="320" height="300">
+<img src="https://user-images.githubusercontent.com/60882704/141094855-55f1b332-eaae-4079-8fa5-02533531d46e.png" width="500" height="270">
 </p>
+
 
 
    * Advanced Settings for ONT or ILMN
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" >
+<img src="https://user-images.githubusercontent.com/60882704/141095942-fa5001e3-f01f-4979-8028-779bbe22cb4f.png" width="1000" height="300" >
 </p>
+
+
 
 See description of fields here:
 
@@ -367,14 +392,14 @@ See description of fields here:
 | **Input file path** | Input fastx file for ONT data |
 | **First input file path** | First input fastx file for paired-end ILMN data |
 | **Second input file path**  | Second input fastx file for paired-end ILMN data  |
-| **Reference file path** | Path to reference file  |
+| **Reference file path** | Path to reference fasta file  |
 | **Bed file path** | Path to bedfile for chromosome of interest  |
 | **KaryoploteR genome file path**  | Path to custom genome file for KaryoploteR  |
-| **ROI coordinates** | Start and end coordinates for region of interest  |
-| **Validation sequence** | Start and end coordinates for validation sequence(s)  |
-| **Detection sequence**  | Start and end coordinates for detection sequence(s) |
+| **ROI coordinates** | Start and end coordinates for region of interest. Size is auto-calculated  |
+| **Validation sequence** | Start and end coordinates for validation sequence(s). Size is auto-calculated  |
+| **Detection sequence**  | Start and end coordinates for detection sequence(s). Size is auto-calculated |
 | **Custom region title** | Title for custom region. Default is 100, e.g. become 100 kb. Only integers  |
-| **Custom region coordinates** | Start and end coordinates for custom region. Autocalculated around first detection sequence coordinates |
+| **Custom region coordinates** | Start and end coordinates for custom region. Auto-calculated around first detection sequence coordinates |
 | **Quality filtering** | Optional. Quality filtering of alignment. Default is 0  |
 | **CPU threads** | Number of CPU threads to use. Default is 4  |
 | **Skip mapping**  | Path to directory containing _output.sam_ in order to skip the mapping part.  |
@@ -384,17 +409,15 @@ See description of fields here:
 4. Click _Create config file_.
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" >
+<img src="https://user-images.githubusercontent.com/60882704/141096613-d8f3b23f-06ce-486b-ba40-64309a8f6460.png" width="500" height="560" >
 </p>
+
 
 5. Click _Run the pipeline_ to run the enrichment mapping report pipeline. An e-mail will be sent upon completion
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/60882704/138112094-da2ddfd4-120b-4ded-947b-435f33d1a40f.png" >
 </p>
-
-
-
 
 
 ### <a name="add_tags"></a> Add tags to alignment
