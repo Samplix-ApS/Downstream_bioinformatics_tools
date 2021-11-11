@@ -58,12 +58,7 @@ The docker container must be initiated to use the tools. There are two tool mode
 
 After the docker container is up and running it is also possible to enter [_bash mode_](#bash_docker) or to [_stop_](#stop_docker) the docker.
 
-To use docker.py:
-```
-python3 docker.py <parameter>
-```
-
-with the following parameters:
+The following parameters are available for docker. See instruction below how to use them.
 
 ```
 -i      Input-data path
