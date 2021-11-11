@@ -9,7 +9,7 @@
 # <a name="uguide"></a> User's Guide
 ## <a name="download_ref"></a> Download reference
 It is possible to download the desired reference sequence directly onto the server through ftp. Navigate to the desired reference.
-For example the human genome build 38 (hg38).
+For example the human genome build 38 patch 13 (GRCh38.p13 also known as hg38) on NCBI.
 1. click on the “FTP directory to RefSeq assembly:
 
 <p align="center">
