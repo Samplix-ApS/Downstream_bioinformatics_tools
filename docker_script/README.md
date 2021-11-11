@@ -3,6 +3,8 @@
 ## Table of Contents
 [User's guide](#uguide)
 - [Getting started](#get_started)
+  - [Download docker.py locally](#download_local)
+  - [Download docker.py to server](#download_server) 
 - [Description](#descript_)
   - [Initiate the Reference and Analysis tools](#start_docker)
   - [Initiate the Basecalling tools](#start_basecall)
@@ -15,7 +17,7 @@
 ## <a name="get_started"></a> Getting started
 The Samplix docker must be installed. See [**docker installation manual**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_install).
 
-**Download the docker.py script:**
+### <a name="download_local"></a> Download docker.py locally
 1. Click on docker.py
 
 <p align="center">
@@ -29,7 +31,28 @@ The Samplix docker must be installed. See [**docker installation manual**](https
 </p>
 
 3. Save the file with the correct file extension, i.e. **_.py_**
+
+
+### <a name="download_server"></a> Download docker.py to server
+1. Click on docker.py
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141150954-70c17528-f0f2-4f1a-96f3-3c6cf40f5d01.png">
+</p>
+
+2. In the top right, right click the _Raw_ button. Choose _Copy link address..._.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141285983-595fa35e-078d-4fc4-b09e-5a950363b412.png">
+</p>
+
  
+ 3. Download with wget to current directory:
+
+```
+wget LINK
+```
+
 # <a name="descript_"></a> Description
 The docker container must be initiated to use the tools. There are two tool modes for the docker container: [_Reference and Analysis tools_](#start_docker) and [_Basecalling tools_](#start_basecall). The Reference and Analysis tools run using CPUs, whereas Basecalling tools requires GPUs. When iniating the docker container the latest docker will be pulled and updated.
 
