@@ -14,8 +14,10 @@ the docker hub registery.
 This image is available at our public repository
 <https://hub.docker.com/r/samplix/samplix_analysis_tools>
 
-You can pull this image running the following command  
-**docker pull samplix/samplix_analysis_tools:latest**
+You can pull this image running the following command 
+```
+docker pull samplix/samplix_analysis_tools:latest
+```
 
 # Available tools
 
@@ -54,7 +56,7 @@ tools available in the image.
 | /pipelines/basecall         | 2.0.0       | /pipelines/basecall                      |
 | /pipelines/analysispipeline | 2.0.0       | Available at /pipelines/analysispipeline |
 
-Basecalling and enrichment mapping pipleine's executables can be accessed with in docker container by running the following commands
+Basecalling and enrichment mapping pipleine's executables can be accessed within docker container by running the following commands
 ```
 /pipelines/basecall -help
 ```
@@ -107,16 +109,11 @@ docker pull samplix/samplix_analysis_tools:latest
 
 *HTTP Mode*
 ```
-docker run -td -v **[absolute path to input direcotry]**:/input-data -v
-**[absolute path to reference sequence directory]*:/refseq-data -p
-**[external port]**:8080 samplix/samplix_analysis_tools:latest
+docker run -td -v [absolute path to input direcotry]:/input-data -v [absolute path to reference sequence directory]:/refseq-data -p [external port]:8080 samplix/samplix_analysis_tools:latest
 ```
 *HTTPS Mode*
 ```
-docker run -td -v [absolute path to input direcotry]:/input-data -v
-[absolute path to reference sequence directory]:/refseq-data -e
-SECURE=true -p [external port]:4430
-samplix/samplix_analysis_tools:latest
+docker run -td -v [absolute path to input direcotry]:/input-data -v [absolute path to reference sequence directory]:/refseq-data -e SECURE=true -p [external port]:4430 samplix/samplix_analysis_tools:latest
 ```
 ### Run docker with GPU’s exposed to the container
 
@@ -133,9 +130,7 @@ required to be downloaded and installed on server
 *HTTP mode with GPU's*
 
 ```
-docker run -td –gpus all -v [absolut epath to input
-direcotry]:/input-data -v [absolute path to reference sequence
-directory]:/refseq-data -p [external port]:8080
+docker run -td –gpus all -v [absolut epath to input direcotry]:/input-data -v [absolute path to reference sequence directory]:/refseq-data -p [external port]:8080
 samplix/samplix_analysis_tools:latest
 
 ```
@@ -143,9 +138,7 @@ samplix/samplix_analysis_tools:latest
 *HTTPS mode with GPU's*
 
 ```
-docker run -td –gpus all -v [absolute path to input
-direcotry]:/input-data -v [absolute path to reference sequence
-directory]:/refseq-data -e SECURE=true -p [external port]:4430
+docker run -td –gpus all -v [absolute path to input direcotry]:/input-data -v [absolute path to reference sequence directory]:/refseq-data -e SECURE=true -p [external port]:4430
 samplix/samplix_analysis_tools:latest
 
 ```

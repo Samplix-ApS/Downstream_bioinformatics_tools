@@ -8,10 +8,12 @@
 - [IGV: Adding a new reference](#add_ref)
 - [IGV: Custom bed track](#custom_bed)
 - [IGV: Add annotation file (GFF)](#add_annot)
-  - [Download annotation file](#download_annot)
+  - [Load annotation file](#load_annot)
   - [Rename chromosomes in annotation file](#rename_chromo)
   - [Sort and index annotation file for IGV](#sort_index_anno)
-  - [Bundle reference and annotations](#bundle_gff)  
+  - [Bundle reference and annotations](#bundle_gff)
+- [Add tags to alignment](#add_tag)  
+  - [IGV: View tags](#add_tag_view)   
 - [References](#refs)
 - [Trouble shooting](#help_)
 - [Authors](#authors_)
@@ -22,9 +24,8 @@ IGV, integrative genomics viewer, is a high-performance, easy-to-use, interactiv
 
 BAM files can be viewed in IGV with associated annotation files. However, it can sometimes be necessary to process the bam and annotation file beforehand. 
 ### <a name="depend_"></a> Dependencies
-* python3
-* samtools
-* IGV
+* IGV installed locally
+
 ## <a name="view_bam"></a> IGV: View BAM file
 Load the BAM in **File->Load** from file. It is not necessary to load the associated index, as IGV locates it automatically.
 To view a BAM file it must be sorted and indexed using samtools (SAMtools sort and index).
@@ -54,7 +55,7 @@ To sort and index a BAM file in IGV:
 
 ## <a name="add_ref"></a> IGV: Adding a new reference
 To add a new reference genome to IGV navigate to Genomes -> Load genomes from file.
-IGV automatically indexes a new reference sequence. This can take a good while if the reference is large. Until the reference is indexed, the chromosomes of the loaded genome will not be shown. It can seem as if the program is stalling or has crashed, but it is just indexing. It is possible to save time by indexing the reference yourself, using _samtools faidx_ on the server.
+IGV automatically indexes a new reference sequence. This can take a good while if the reference is large. Until the reference is indexed, the chromosomes of the loaded genome will not be shown. It can seem as if the program is stalling or has crashed, but it is just indexing. It is possible to save time by indexing the reference yourself, using _samtools faidx_ in the docker bash. See [**docker script**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script#bash_docker) on how to enter docker bash.
 ```
 samtools faidx REFERENCE 
 ```
@@ -82,30 +83,20 @@ It is possible to add your own custom bed file track to IGV. IGV bed files use a
 </p>
 
 ## <a name="add_annot"></a> IGV: Add annotation file (GFF)
-### <a name="download_annot"></a>Download and load annotation file
-See download reference and annotations in the repository to download reference to server.
+### <a name="load_annot"></a>Load annotation file
+See [**download reference and annotations**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation) in the repository to download to server.
 
-To download to local computer:
-1. Click on _Download Assembly_ and navigate to the Genomic GFF (.gff).
-<p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/135450493-3b3201ea-bc82-4c1c-814d-de06fb83f056.png" width="500" height="300">
-</p>
-
-2. Click download
-
-3. Unzip the .tar file into the reference folder using 7-zip, WinZip or a similar program.
-
-4. In IGV navigate to _File->Load from file_ and load the annotation.gff.gz file. This can take a while depending on the size of the annotation file.
+1. In IGV navigate to _File->Load from file_ and load the annotation.gff.gz file. This can take a while depending on the size of the annotation file.
 <p align="center">
 <img src="https://user-images.githubusercontent.com/60882704/135452336-925eeccf-d2a8-4a21-856e-23793ace0dc7.png">
 </p>
 
 ### <a name="rename_chromo"></a>Rename chromosomes in annotation file
-If the names of the primary assembly/chromosomes have been changed in the reference sequence, it is necessary to also change the names in the annotation file.
+If the names of the primary assembly/chromosomes have been changed in the reference sequence, it is necessary to also change the names in the annotation file. See [**docker script**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script#bash_docker) on how to enter docker bash.
 
 Use the following command:
 ```
-python3 gff_samplix.py -i ANNOTATION_FILE -c chromosome_names -r replacement_name <optional>
+python3 /webutility/scripts/gff_rename.py -i ANNOTATION_FILE -c chromosome_names -r replacement_name <optional>
 ```
 It can be run with the following parameters:
 ```
@@ -134,12 +125,79 @@ It is possible to 'bundle' the reference genome and annotations together using I
 <img src="https://user-images.githubusercontent.com/60882704/135485752-5bbccf87-cb41-45ac-916a-8cc6c5f54940.png">
 </p>
 
-## <a name="refs"></a> References
-IGV: http://software.broadinstitute.org/software/igv/UserGuide
+## <a name="add_tag"></a> Add tags to alignment
+[**Add tags to alignment**](https://github.com/Samplix-ApS/Bioinformatics_tools#add_tags) (SAM/BAM) files to ease viewing in IGV. Especially useful when working with pseudogenes and inserts.
+Two tags are currently possible: read name (RG) and all chromosomes which each read aligns to (RZ), e.g. if read A maps to chr_01, chr_05, and chr_08, the tag will be chr_01;chr_05;chr_08. This tag will be added to each instance of read A present in the S/BAM alignment file. 
+Using these two tags, this allows for coloring by read name (enabling to see chimeric reads) and grouping alignments by chromosomes. This is highly useful when working with inserts. 
 
-SAMtools: http://www.htslib.org/doc/samtools.html
+Coloring and grouping by readname (tag RG):
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141278963-7986ae90-4b63-4987-9283-32b697c41d01.png">
+</p>
+
+
+Coloring and grouping by chromosome (tag RZ):
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141279135-36d89eb2-bd0c-4554-85c4-f9b5261455ee.png">
+</p>
+
+
+Coloring by readname (tag RG) and grouping by chromosome (tag RZ): 
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141279244-25361527-cd0b-4af0-ba47-1b1e4bb47a08.png">
+</p>
+
+
+Viewing reads mapped to chromosome 18 and comparing to reads mapped to insertion sequence:
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141278589-b777eec8-434b-4869-85a9-2a28dc642a46.png" >
+</p>
+
+
+
+### <a name="add_tag_view"></a> IGV: View tags
+In IGV it is recommended to color by tag RG (read name) and group by tag RZ (mapped chromosomes). Sometimes it is necessary to group by tag RG, color by tag RG, and then group by tag RZ to get correct colors out. 
+
+To view two different sites in the alignment, it is recommended to save the IGV session, close it, and open two new seperate windows. It is necessary to save, as the colors change upon saving, however, grouping is not affected. 
+
+**Color by tag**
+1. Right click on the alignment, navigate to _Group alignments by_ and _tag_:
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141280617-083a23cd-0175-47a0-bb9d-dae9d21a9f78.png" >
+</p>
+
+2. Type RG for read name tag or RZ for chromosome alignment tag:
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141280975-6273b7bf-695c-49c7-b01e-8581c93da747.png" >
+</p>
+
+
+**Group by tag**
+1. Right click on the alignment, navigate to _Color alignments by_ and _tag_:
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141280699-5414d343-7e63-4e51-bcd2-0df033448b51.png" >
+</p>
+
+2. Type RG for read name tag or RZ for chromosome alignment tag:
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141280975-6273b7bf-695c-49c7-b01e-8581c93da747.png" >
+</p>
+
+## <a name="refs"></a> References
+[IGV](http://software.broadinstitute.org/software/igv/UserGuide)
+
+[SAMtools](http://www.htslib.org/doc/samtools.html)
+
 ## <a name="help_"></a> Trouble shooting
-Contact CAJ
+Contact samplix.com
 
 ## <a name="authors_"></a> Authors
 Camille Johnston (CAJ)
