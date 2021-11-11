@@ -133,33 +133,63 @@ Using these two tags, this allows for coloring by read name (enabling to see chi
 Coloring and grouping by readname (tag RG):
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" width="300" height= "300">
+<img src="https://user-images.githubusercontent.com/60882704/141278963-7986ae90-4b63-4987-9283-32b697c41d01.png">
 </p>
 
 
 Coloring and grouping by chromosome (tag RZ):
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" width="300" height= "300">
+<img src="https://user-images.githubusercontent.com/60882704/141279135-36d89eb2-bd0c-4554-85c4-f9b5261455ee.png">
 </p>
 
 
 Coloring by readname (tag RG) and grouping by chromosome (tag RZ): 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" width="300" height= "300">
+<img src="https://user-images.githubusercontent.com/60882704/141279244-25361527-cd0b-4af0-ba47-1b1e4bb47a08.png">
 </p>
 
-Viewing reads mapped to insertion sequence and comparing to reads mapped to chromosome 18:
+
+Viewing reads mapped to chromosome 18 and comparing to reads mapped to insertion sequence:
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/138087564-41cc304d-cfd0-4429-adfc-8fd18a76dab7.png" width="300" height= "300">
+<img src="https://user-images.githubusercontent.com/60882704/141278589-b777eec8-434b-4869-85a9-2a28dc642a46.png" >
 </p>
+
+
 
 ### <a name="add_tag_view"></a> IGV: View tags
 In IGV it is recommended to color by tag RG (read name) and group by tag RZ (mapped chromosomes). Sometimes it is necessary to group by tag RG, color by tag RG, and then group by tag RZ to get correct colors out. 
 
 To view two different sites in the alignment, it is recommended to save the IGV session, close it, and open two new seperate windows. It is necessary to save, as the colors change upon saving, however, grouping is not affected. 
+
+**Color by tag**
+1. Right click on the alignment, navigate to _Group alignments by_ and _tag_:
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141280617-083a23cd-0175-47a0-bb9d-dae9d21a9f78.png" >
+</p>
+
+2. Type RG for read name tag or RZ for chromosome alignment tag:
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141280975-6273b7bf-695c-49c7-b01e-8581c93da747.png" >
+</p>
+
+
+**Group by tag**
+1. Right click on the alignment, navigate to _Color alignments by_ and _tag_:
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141280699-5414d343-7e63-4e51-bcd2-0df033448b51.png" >
+</p>
+
+2. Type RG for read name tag or RZ for chromosome alignment tag:
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/141280975-6273b7bf-695c-49c7-b01e-8581c93da747.png" >
+</p>
 
 ## <a name="refs"></a> References
 [IGV](http://software.broadinstitute.org/software/igv/UserGuide)
