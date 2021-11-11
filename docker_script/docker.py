@@ -22,7 +22,7 @@ def print_help():
 
 
 def docker_container_ID():
-    print('Obtaining docker Container ID')
+    #print('Obtaining docker Container ID')
     call_docker = subprocess.Popen(['docker', 'ps', '-a'],stdout=subprocess.PIPE)
     stdout, stderr = call_docker.communicate()
     docker_ps=stdout.decode("utf-8")
@@ -34,23 +34,25 @@ def docker_container_ID():
         if len(line) > 1:
             line_replace = re.sub('(?<=[^ ])( )(?=[^ ])', '_', line.lower())
             line_split = line_replace.split()
-
             if bool(re.match('up', line_split[4])):
                 status = 'up'
-                list_up.append((line_split[0], status, line_split[4]))
+                port_1 = re.search('(?<=.:)(.*?)(?=\->)',line_split[5]).group()
+                port_2 = re.search('(?<=\->)(.*?)(?=\/)',line_split[5]).group()
+                port_range = ':'.join([port_2, port_1])
+                list_up.append((line_split[0], status, line_split[4], port_range))
                 continue
             if bool(re.match('exited', line_split[4])):
                 status = 'exited'
                 list_exited.append((line_split[0], status, line_split[4]))
                 continue
 
+    df = pd.DataFrame(list_up)
+    df.columns = ['Container_ID', 'Status', 'Time', 'Port_range']
+    print(df)
+
     if len(list_up) > 1 :
         print('More than one docker container is running')
         print('Which container should be stopped?')
-
-        df = pd.DataFrame(list_up)
-        df.columns = ['Container_ID', 'Status', 'Time']
-        print(df)
 
         match = 'false'
         count = 0
@@ -84,14 +86,27 @@ def docker_pull():
     print('Pulling latest docker')
     call_docker = subprocess.run(['docker', 'pull', docker_tools])
 
+def return_code_start(process):
+    if process.returncode == 125:
+        print('\n######################################################################')
+        print('DOCKER INITIATION FAILED\n')
+        print('Docker is running:')
+        docker_container_ID()
+        print('######################################################################')
+        quit()
+
+
 def docker_analysis(input_data, refseq_data, port_range, basecalling_tools, secure):
     if basecalling_tools == 'false':
+        validate_dir(input_data, 'input-data')
+        validate_dir(refseq_data, 'refseq-data')
         print('\nInitiating docker Reference and Analysis tools')
         if secure == 'false':
             call_docker = subprocess.Popen(['docker', 'run', '-td', '-v',input_data, '-v', refseq_data, '-p', port_range, docker_tools],stdout=subprocess.PIPE)
         if secure == 'true':
             call_docker = subprocess.Popen(['docker', 'run', '-td', '-v',input_data, '-v', refseq_data,'-e', 'SECURE=true', '-p', port_range, docker_tools],stdout=subprocess.PIPE)
         stdout, stderr = call_docker.communicate()
+        return_code_start(call_docker)
         docker_session=stdout.decode("utf-8").strip()[0:12]
         print('Docker container initiated:', docker_session)
         print('Port range:', port_range)
@@ -100,10 +115,10 @@ def docker_analysis(input_data, refseq_data, port_range, basecalling_tools, secu
 
 def validate_args(stop_arg, basecalling_tools, port, input_dir, refseq_dir, secure, bash):
     if stop_arg == '':
-        stop_arg = 'start'
+        stop_arg = 'false'
 
-    if stop_arg != 'start' and stop_arg != 'stop':
-        print('Invalid -s argument. Must be start or stop')
+    if stop_arg.lower() != 'stop' and stop_arg != 'false':
+        print('Invalid -s argument. Must be stop')
         quit()
 
     if basecalling_tools == '':
@@ -154,19 +169,32 @@ def validate_args(stop_arg, basecalling_tools, port, input_dir, refseq_dir, secu
     return stop_arg, basecalling_tools, port, input_dir, refseq_dir, secure, bash
 
 def get_dir(input_dir, refseq_dir):
-    input_data = input_dir +':/input-data'
-    refseq_data = refseq_dir +':/refseq-data'
+    if input_dir != '':
+        input_data = input_dir +':/input-data'
+    else:
+        input_data = 'None'
+    if refseq_dir != '':
+        refseq_data = refseq_dir +':/refseq-data'
+    else:
+        refseq_data = 'None'
 
     return input_data, refseq_data
 
+def validate_dir(dir, string_dir):
+    if dir == 'None':
+        print('\nNo', string_dir, 'directory given. Exiting')
+        quit()
+
 def docker_basecall(input_data, port_range, basecalling_tools, secure):
     if basecalling_tools == 'true':
+        validate_dir(input_data, 'input-data')
         print('\nInitiating docker basecalling_tools')
         if secure == 'false':
             call_docker = subprocess.Popen(['docker', 'run', '-td', '--gpus', 'all', '-v',input_data,'-p', port_range, docker_tools],stdout=subprocess.PIPE)
         if secure == 'true':
             call_docker = subprocess.Popen(['docker', 'run', '-td', '--gpus', 'all', '-v',input_data,'-e','SECURE=true','-p', port_range, docker_tools],stdout=subprocess.PIPE)
         stdout, stderr = call_docker.communicate()
+        return_code_start(call_docker)
         docker_session=stdout.decode("utf-8").strip()[0:12]
         print('Docker container initiated:', docker_session)
         print('Port range:', port_range)
@@ -197,7 +225,7 @@ def docker_bash(bash):
 
 
 def docker_start(stop_arg, input_dir, refseq_dir, basecalling_tools, port, secure, bash):
-    if stop_arg == 'start' and bash == 'false':
+    if stop_arg == 'false' and bash == 'false':
         input_data, refseq_data = get_dir(input_dir, refseq_dir)
 
         port_range = get_port_range(port, secure)
