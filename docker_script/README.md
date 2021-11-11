@@ -54,9 +54,10 @@ wget LINK
 ```
 
 # <a name="descript_"></a> Description
-The docker container must be initiated to use the tools. There are two tool modes for the docker container: [_Reference and Analysis tools_](#start_docker) and [_Basecalling tools_](#start_basecall). The Reference and Analysis tools run using CPUs, whereas Basecalling tools requires GPUs. When iniating the docker container the latest docker will be pulled and updated.
+The docker container must be initiated to use the tools. There are two tool modes for the docker container: [_Reference and Analysis tools_](#start_docker) and [_Basecalling tools_](#start_basecall). The Reference and Analysis tools run using CPUs, whereas Basecalling tools requires GPUs. When initiating the docker container the latest docker will be pulled and updated.
 
 After the docker container is up and running it is also possible to enter [_bash mode_](#bash_docker) or to [_stop_](#stop_docker) the docker.
+Only one docker session can run per port. If a port is occupied please iniate the docker container with a different port using _-p_.
 
 The following parameters are available for docker. See instruction below how to use them.
 
@@ -70,8 +71,11 @@ The following parameters are available for docker. See instruction below how to 
 ```
 
 
+
 ## <a name="start_docker"></a> Initiate the Reference and Analysis tools
-To use the Reference and Analysis tools the docker container must be initiated. When iniating the docker container the latest docker will be pulled and updated. 
+To use the Reference and Analysis tools the docker container must be initiated. When iniating the docker container the latest docker will be pulled and updated.
+Provide the directory to the sequencing data as INPUT-DATA and the reference data as REFSEQ-DATA. If both sequencing data and reference data is present in the same directory, please provide the directory twice (bot _-i_ and _-r_). The directory provided in _-i_ will appear as _/input-data/_ and the directory in _-r_ will appear as _/refseq-data/_.
+
 
 To initiate the container:
 ```
@@ -81,7 +85,7 @@ python3 docker.py -i INPUT-DATA -r REFSEQ-DATA <optional>
 e.g.
 
 ```
-python3 docker.py -i /john/seq_data/ -r /john/refseq/
+python3 docker.py -i /john/seq_data/ -r /john/reference_data/
 ```
 
 with the following parameters:
@@ -95,6 +99,8 @@ with the following parameters:
 
 ## <a name="start_basecall"></a> Initiate the Basecalling tools
 To use the Basecalling tools, GPUs must be activated when initiating the docker container. When iniating the docker container the latest docker will be pulled and updated.
+
+Provide the directory to the sequencing data as INPUT-DATA. The directory provided in _-i_ will appear as _/input-data/_.
 
 To initiate the container:
 ```
@@ -117,7 +123,7 @@ with the following parameters:
 ```
 
 ## <a name="stop_docker"></a> Stop the docker container
-The docker container can be stopped using the command below. If more than one container is activate, the user will presented with a choice of which container to stop.
+The docker container can be stopped using the command below. If more than one container is activate, the user will be presented with a choice of which container to stop.
 
 To stop the container:
 ```
@@ -131,7 +137,7 @@ with the following parameters:
 ```
 
 ## <a name="bash_docker"></a> Enter bash mode
-The docker container has a bash mode allowing you to work within the docker. You will start in the input-data directory. 
+The docker container has a bash mode allowing you to work within the docker. You will start in the _/input-data/_ directory. 
 The docker container must first be up and running. 
 
 To initiate bash mode:
@@ -149,8 +155,6 @@ To exit bash mode simply type:
 ```
 exit
 ```
-
-
 
 
 # <a name="help_"></a> Trouble shooting
