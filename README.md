@@ -30,10 +30,11 @@
 
 Basecalling tools, Reference tools and Analysis tools needed for handling ONT and ILMN data. 
 
+1. Docker must be installed. See the [**docker installation manual**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_install) for instruction on how to install the docker. 
+2. Download the [**docker script**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script).
+3. Initiate the docker session with the [**docker script**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script).
+4.  In order to access the web-interface of a running docker session please access the public IP address of the server that the docker is running on and the external port used to start the docker session: http://IP-ADDRESS:8089 (_e.g. http://192.168.2.3:8089_). If the docker was initiated with a secure port use https://IP-ADDRESS:4430 instead. If you do not know your public IP address, please contact your local IT support.   
 
-To run the bioinformatics tools, the docker session must be active and running. Use the [**docker script**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script) to start and stop the docker. In order to access the web-interface of a running docker session please access the local ip-address of the server and the external port used to start the docker session: http://IP-ADDRESS:8089 (_e.g. http://192.168.2.3:8089_). If the docker was initiated with a secure port use https://IP-ADDRESS:4430 instead. 
-
-See the [**docker installation manual**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_install) for instruction on how to install the docker. 
 
 ## <a name="basecall_tools"></a> Basecalling tools
 <p align="center">
