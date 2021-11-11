@@ -4,6 +4,7 @@
 - [Download references](#download_ref)
 - [Download annotations (GFF)](#download_gff)
 - [Primary assembly extraction and renaming](#prim_)
+- [Troubleshooting](#help_)
 - [Authors](#authors_)
 # <a name="uguide"></a> User's Guide
 ## <a name="download_ref"></a> Download reference
@@ -28,7 +29,7 @@ For example the human genome build 38 (hg38).
 
 ## <a name="download_gff"></a> Download annotation
 It is possible to download the desired reference annotation directly onto the server through ftp. Navigate to the desired reference.
-For example the human genome build 38 (hg38).
+For example the human genome build 38 patch 13 (GRCh38.p13 also known as hg38) on NCBI.
 1. click on the “FTP directory to RefSeq assembly:
 
 <p align="center">
@@ -81,6 +82,8 @@ The chromosomes in the reference usually use the RefSeq sequence nomenclature. T
 <img src="https://user-images.githubusercontent.com/60882704/141122611-af97ad21-8905-4233-bd22-97b0f56965ed.png">
 </p>
 
+## <a name="help_"></a> Troubleshooting
+Contact bioinformatics@samplix.com
 
 ## <a name="authors_"></a> Authors
 Camille Johnston (CAJ)
