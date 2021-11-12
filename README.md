@@ -156,6 +156,8 @@ Download reference and annotation, merge scaffold and prepare reference for use 
 <img src="https://user-images.githubusercontent.com/60882704/141128232-45c353a9-7a0c-40fd-9cec-7352c6164a3f.png">
 </p>
 
+If you do not already have a reference, you can use the download reference tool.
+
 See the [download references manual](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation#download_ref) on how to obtain refseq and genbank ftp links.
 
 1. Click _Download reference_ under Reference tools.
@@ -196,6 +198,7 @@ See description of fields here:
 <img src="https://user-images.githubusercontent.com/60882704/141128337-550783b6-b2d9-4909-9187-8551d7040d31.png" >
 </p>
 
+If you need annotations for your reference and you do not already have them, then you can use the download annotation tool.
 
 See the [**download annotation manual**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation#download_gff) on how to obtain refseq and genbank ftp links.
 1. Click _Download annotation_ under Reference tools.
@@ -240,7 +243,7 @@ See description of fields here:
 Many genomes consist of the primary assembly and scaffolds, or entirely of scaffolds, i.e. the human genome consists of 24 sequences in the primary assembly and >600 scaffold (alternative references) sequences. It can quickly become meaningless to map to this many scaffolds, and therefore it is recommended to merge the scaffolds to avoid  ‘losing’ information by not including the them. It is also recommended to use merge scaffolds if your assembly only contains scaffolds and contigs.
 A bed-like file will be generated for the merged scaffolds, containing the position and name of the original scaffold as a feature. 
 
-If your reference contains a primary assembly, create a list of these chromosome names. 
+If your reference contains a primary assembly, create a list of these chromosome names. See [Primary assembly extraction](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation#prim_). 
 
 1. Click _Merge scaffolds_ under Reference tools.
 
@@ -298,7 +301,7 @@ See description of fields here:
 <img src="https://user-images.githubusercontent.com/60882704/141128557-f79edd33-c27d-459c-8353-4618ad02cb19.png" >
 </p>
 
-Prepare reference for use in enrichment mapping report generation
+Prepare reference for use in enrichment mapping report generation.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/60882704/138286223-6ac73071-f4b7-4d4b-8263-f93484b205aa.png" >
@@ -368,7 +371,7 @@ See description of fields here:
 <img src="https://user-images.githubusercontent.com/60882704/141128960-24312e54-87d3-434f-a8ee-f71f97517d2e.png" >
 </p>
 
-Analysis tools for generation of enrichment mapping report and adding tags to alignments for Oxford Nanopore® Technologies and Illumina® data.​
+Analysis tools for generation of enrichment mapping report and adding tags to alignments for Oxford Nanopore® Technologies and Illumina® data.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/60882704/138286397-c3b80ca1-e9f6-491f-9359-e161d059b903.png" >
@@ -382,9 +385,7 @@ Analysis tools for generation of enrichment mapping report and adding tags to al
 
 
 
-The enrichment mapping report pipeline can be performed on both ILMN and ONT fastq files. The majority of the pipeline is the same, however, there are some slight differences prior to mapping. FastQC is performed on ILMN fastq files before and after trimming with trimmomatic as a QC measure. The outputs are run reports in html format.
-
-Mapping is performed with minimap2 and bwa-mem for ONT and ILMN data, respectively, with standard parameters and output in SAM format. After mapping, SAMtools is used to convert the SAM file into a compressed binary SAM format: BAM. The BAM file is subsequently manipulated in SAMtools. Read lengths are obtained for the different target regions (ROI, customizable region and 10 kb regions) using awk. Softclipped regions are obtained using our own python scripts. Genome coverage is obtained using Qualimap. BAM files and statistics obtained from SAMtools, together with sequence lengths and genome coverage are processed in R, utilizing our own Rscript. This generates the figures and table incorporated into the reports. The reports are generated using docx-tpl and soffice.
+The enrichment mapping report pipeline can be performed on both ILMN and ONT fastq files. It generates a report containing read, mapping and enrichment stats. See [enrichment mapping report manual](https://github.com/Samplix-ApS/Bioinformatics_tools/blob/main/Emap_report_manual/) for further details.
 
 1. Click _Enrichment mapping report_ under Analysis tools.
 
@@ -428,15 +429,16 @@ Mapping is performed with minimap2 and bwa-mem for ONT and ILMN data, respective
    * Other settings
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141094855-55f1b332-eaae-4079-8fa5-02533531d46e.png" >
+<img src="https://user-images.githubusercontent.com/60882704/141502341-330cdf9b-5b35-4b8d-ac0d-f39251c47cb6.png" >
 </p>
+
 
 
 
    * Advanced Settings for ONT or ILMN
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141098689-e58ff53f-7208-48c6-be3c-cee8e4268095.png" >
+<img src="https://user-images.githubusercontent.com/60882704/141503337-1f567299-c514-42de-b315-f73ee1e011f5.png" >
 </p>
 
 
@@ -468,7 +470,7 @@ See description of fields here:
 | **minimap2 additional arguments** | Advanced. Provide additional mapping arguments to minimap2. |
 | **BWA-MEM additional arguments**  | Advanced. Provide additional mapping arguments to bwa-mem |
 
-4. Click _Run the pipeline_ to run the enrichment mapping report pipeline. An e-mail will be sent upon completion
+4. Click _Create config file_ to create the config file needed to run the pipeline.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/60882704/141096613-d8f3b23f-06ce-486b-ba40-64309a8f6460.png" >
@@ -478,10 +480,12 @@ See description of fields here:
 5. Click _Run the pipeline_ to run the enrichment mapping report pipeline. An e-mail will be sent upon completion
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141098939-8ede6861-d0f5-4631-a372-52d12b817bf2.png" >
+<img src="https://user-images.githubusercontent.com/60882704/141504001-1d5cb577-16f8-4ed5-b961-53bd3d21fb6f.png" >
 </p>
 
 
+
+See the [enrichment mapping report manual](https://github.com/Samplix-ApS/Bioinformatics_tools/blob/main/Emap_report_manual/README.md#output_) for an overview of the generated BAM files. 
 
 ### <a name="add_tags"></a> Add tags to alignment
 
@@ -524,7 +528,7 @@ See description of fields here:
 [Obtain primary assembly](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation#prim_)
 
 # <a name="help_"></a> Trouble shooting
-Contact samplix.com
+Contact bioinformatics@samplix.com
 
 # <a name="authors_"></a> Authors
 Camille Johnston (CAJ)
