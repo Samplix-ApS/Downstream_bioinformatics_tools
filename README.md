@@ -457,7 +457,7 @@ See description of fields here:
 | **First input file path** | First input fastx file for paired-end ILMN data |
 | **Second input file path**  | Second input fastx file for paired-end ILMN data  |
 | **Reference file path** | Path to reference fasta file  |
-| **Bed file path** | Path to bedfile for chromosome of interest  |
+| **Bed file path** | Path to bedfile for chromosome of the region of interest  |
 | **KaryoploteR genome file path**  | Path to custom genome file for KaryoploteR  |
 | **ROI coordinates** | Start and end coordinates for region of interest. Size is auto-calculated  |
 | **Validation sequence** | Start and end coordinates for validation sequence(s). Size is auto-calculated  |
