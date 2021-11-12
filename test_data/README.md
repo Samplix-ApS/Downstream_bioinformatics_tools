@@ -7,7 +7,10 @@
   - [ONT](#ont_fastq_)
   - [ILMN](#ilmn_fastq_)
 - [Assay information](#assay_info)
-- [Trouble shooting](#help)
+- [Reports](#reports_)
+  - [Basecalling report](#basecalling_report_) 
+  - [Enrichment mapping report](#enrichment_report)
+- [Trouble shooting](#help_)
 - [Authors](#authors)
 
 # <a name="descript_"></a> Description
@@ -41,10 +44,17 @@ Size: 578 mb.
 |	**VS start**	|	7673906	|
 |	**VS end**	|	7674109	|
 
-## <a name="help"></a>Trouble shooting
+
+# <a name="reports_"></a> Reports
+## <a name="basecalling_report_"></a> Basecalling report
+
+
+## <a name="enrichment_report_"></a> Enrichment mapping report
+
+# <a name="help_"></a>Trouble shooting
 Contact bioinformatics@samplix.com
 
-## <a name="authors"></a>Authors
+# <a name="authors"></a>Authors
 Camille Johnston
 
 Qammar Abbas
