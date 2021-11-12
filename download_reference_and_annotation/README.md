@@ -69,7 +69,7 @@ The chromosomes in the reference usually use the RefSeq sequence nomenclature. T
 <img src="https://user-images.githubusercontent.com/60882704/141120784-dbf21cdd-f344-4ab9-a91f-b5d18dfb1385.png">
 </p>
 
-4. Copy and save the primary assembly RefSeq names to use for extraction of primary assembly in [**prepare reference**](https://github.com/Samplix-ApS/Bioinformatics_tools#prep_ref):
+4. Copy and save the primary assembly RefSeq names to use for extraction of primary assembly in [**prepare reference**](https://github.com/Samplix-ApS/Bioinformatics_tools#prep_ref) or [merge scaffolds](https://github.com/Samplix-ApS/Bioinformatics_tools#merge_scaffold):
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/60882704/141122522-d69a9c89-6017-4ee4-ad59-9a36c8c27167.png">
