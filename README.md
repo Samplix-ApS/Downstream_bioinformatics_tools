@@ -485,7 +485,7 @@ See description of fields here:
 
 
 
-See the [enrichment mapping report manual](https://github.com/Samplix-ApS/Bioinformatics_tools/blob/main/Emap_report_manual/README.md#output_) for an overview of the generated BAM files. 
+6. Generated output files can be found in _/input-data/ONT_Analysis_date_time_stamp_report-name_, e.g.: <br/> _/input-data/ONT_Analysis_2021_11_12_18_59_34.483883054_TP53_test_. <br/> See the [enrichment mapping report manual](https://github.com/Samplix-ApS/Bioinformatics_tools/blob/main/Emap_report_manual/README.md#output_) for an overview of the generated BAM files. 
 
 ### <a name="add_tags"></a> Add tags to alignment
 
