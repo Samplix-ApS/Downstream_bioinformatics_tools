@@ -159,7 +159,7 @@ exit
 
 
 # <a name="help_"></a> Trouble shooting
-Contact samplix.com
+Contact bioinformatics@samplix.com
 
 # <a name="authors_"></a> Authors
 CAJ
