@@ -63,6 +63,7 @@ The following parameters are available for docker. See instruction below how to 
 
 ```
 -i      Input-data path
+-r      Refseq-data path
 -b      Set to true to load basecalling tools (e.g. activate gpus)
 -p      Optional. Choose which port to use. Default is port 8089
 -x      Set to true to use secure port 4430
