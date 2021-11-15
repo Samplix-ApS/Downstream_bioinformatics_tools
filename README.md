@@ -240,7 +240,8 @@ See description of fields here:
 </p>
 
 
-Many genomes consist of the primary assembly and scaffolds, or entirely of scaffolds, i.e. the human genome consists of 24 sequences in the primary assembly and >600 scaffold (alternative references) sequences. It can quickly become meaningless to map to this many scaffolds, and therefore it is recommended to merge the scaffolds to avoid  ‘losing’ information by not including the them. It is also recommended to use merge scaffolds if your assembly only contains scaffolds and contigs.
+Many genomes consist of the primary assembly and scaffolds, or entirely of scaffolds, i.e. the human genome consists of 24 sequences in the primary assembly and >600 scaffold (alternative references) sequences. It can quickly become meaningless to map to this many scaffolds, and therefore it is recommended to merge the scaffolds to avoid  ‘losing’ information by not including the them. However, be aware that inclusion of ALT contigs. ALT contigs are large variations with very long flanking sequences nearly identical to the primary human assembly. Most read mappers will give mapping quality zero to reads mapped in the flanking sequences. This will reduce the sensitivity of variant calling and many other analyses ([_Which human reference genome to use?_](http://lh3.github.io/2017/11/13/which-human-reference-genome-to-use)).
+</br> It is necessary to use merge scaffolds if your assembly only contains scaffolds and contigs and exceeds 40 sequence records.
 A bed-like file will be generated for the merged scaffolds, containing the position and name of the original scaffold as a feature. 
 
 If your reference contains a primary assembly, create a list of these chromosome names. See [Primary assembly extraction](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation#prim_). 
