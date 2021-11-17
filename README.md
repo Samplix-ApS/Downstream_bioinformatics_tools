@@ -30,10 +30,11 @@
 
 Basecalling tools, Reference tools and Analysis tools needed for handling ONT and ILMN data. 
 
+1. Docker must be installed. See the [**docker installation manual**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_install) for instruction on how to install the docker. 
+2. Download the [**docker script**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script).
+3. Initiate the docker session with the [**docker script**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script).
+4.  In order to access the web-interface of a running docker session please access the public IP address of the server that the docker is running on and the external port used to start the docker session: http://IP-ADDRESS:8089 (_e.g. http://192.168.2.3:8089_). If the docker was initiated with a secure port use https://IP-ADDRESS:4430 instead. If you do not know your public IP address, please contact your local IT support.   
 
-To run the bioinformatics tools, the docker session must be active and running. Use the [**docker script**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script) to start and stop the docker. In order to access the web-interface of a running docker session please access the local ip-address of the server and the external port used to start the docker session: http://IP-ADDRESS:8089 (_e.g. http://192.168.2.3:8089_). If the docker was initiated with a secure port use https://IP-ADDRESS:4430 instead. 
-
-See the [**docker installation manual**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_install) for instruction on how to install the docker. 
 
 ## <a name="basecall_tools"></a> Basecalling tools
 <p align="center">
@@ -155,6 +156,8 @@ Download reference and annotation, merge scaffold and prepare reference for use 
 <img src="https://user-images.githubusercontent.com/60882704/141128232-45c353a9-7a0c-40fd-9cec-7352c6164a3f.png">
 </p>
 
+If you do not already have a reference, you can use the download reference tool.
+
 See the [download references manual](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation#download_ref) on how to obtain refseq and genbank ftp links.
 
 1. Click _Download reference_ under Reference tools.
@@ -167,11 +170,8 @@ See the [download references manual](https://github.com/Samplix-ApS/Bioinformati
 2. Fill out the form and click _Download_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141085401-97dc55f6-6492-4048-8a25-cc28fb40c366.png" >
+<img src="https://user-images.githubusercontent.com/60882704/142181926-13486aab-670b-4999-9cd7-9da57718330e.png" >
 </p>
-
-
-
 
 See description of fields here:
 
@@ -195,6 +195,7 @@ See description of fields here:
 <img src="https://user-images.githubusercontent.com/60882704/141128337-550783b6-b2d9-4909-9187-8551d7040d31.png" >
 </p>
 
+If you need annotations for your reference and you do not already have them, then you can use the download annotation tool.
 
 See the [**download annotation manual**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation#download_gff) on how to obtain refseq and genbank ftp links.
 1. Click _Download annotation_ under Reference tools.
@@ -207,7 +208,7 @@ See the [**download annotation manual**](https://github.com/Samplix-ApS/Bioinfor
 2. Fill out the form and click _Download_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141086252-25cb975d-891b-4ab1-a2a8-09ce9e4b49de.png">
+<img src="https://user-images.githubusercontent.com/60882704/142182046-f2755bd7-0854-44c5-a933-83b878d205bb.png">
 </p>
 
 
@@ -236,10 +237,11 @@ See description of fields here:
 </p>
 
 
-Many genomes consist of the primary assembly and scaffolds, or entirely of scaffolds, i.e. the human genome consists of 24 sequences in the primary assembly and >600 scaffold (alternative references) sequences. It can quickly become meaningless to map to this many scaffolds, and therefore it is recommended to merge the scaffolds to avoid  ‘losing’ information by not including the them. It is also recommended to use merge scaffolds if your assembly only contains scaffolds and contigs.
+Many genomes consist of the primary assembly and scaffolds, or entirely of scaffolds, i.e. the human genome consists of 24 sequences in the primary assembly and >600 scaffold (alternative references) sequences. It can quickly become meaningless to map to this many scaffolds, and therefore it is recommended to merge the scaffolds to avoid  ‘losing’ information by not including the them. However, be aware that inclusion of ALT contigs. ALT contigs are large variations with very long flanking sequences nearly identical to the primary human assembly. Most read mappers will give mapping quality zero to reads mapped in the flanking sequences. This will reduce the sensitivity of variant calling and many other analyses ([_Which human reference genome to use?_](http://lh3.github.io/2017/11/13/which-human-reference-genome-to-use)).
+</br> It is necessary to use merge scaffolds if your assembly only contains scaffolds and contigs and exceeds 40 sequence records.
 A bed-like file will be generated for the merged scaffolds, containing the position and name of the original scaffold as a feature. 
 
-If your reference contains a primary assembly, create a list of these chromosome names. 
+If your reference contains a primary assembly, create a list of these chromosome names. See [Primary assembly extraction](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation#prim_). 
 
 1. Click _Merge scaffolds_ under Reference tools.
 
@@ -252,7 +254,7 @@ If your reference contains a primary assembly, create a list of these chromosome
 2. Fill out the form and click _Next_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141087105-a6fc3b0f-d6e2-4788-b9e1-c3e0cf00eb1f.png" >
+<img src="https://user-images.githubusercontent.com/60882704/142181436-659a9b45-8e3f-4ab6-b6ac-c4b767f94445.png" >
 </p>
 
 
@@ -261,13 +263,13 @@ See description of fields here:
 
 | Field	| Description |
 | --- | --- |
-|   **Reference file** |   Path to reference file  |
+|   **Reference file** |   Path to reference file (fasta format) |
 |   **Save path** |   Main directory to save the downloaded reference in  |
 
 3. Fill out the rest of the form and click _Run_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141087524-857df035-d897-4d42-ba3a-435259661b14.png">
+<img src="https://user-images.githubusercontent.com/60882704/142181627-5cdb3500-7567-4771-a00e-f829c896c65e.png">
 </p>
 
 
@@ -297,7 +299,7 @@ See description of fields here:
 <img src="https://user-images.githubusercontent.com/60882704/141128557-f79edd33-c27d-459c-8353-4618ad02cb19.png" >
 </p>
 
-Prepare reference for use in enrichment mapping report generation
+Prepare reference for use in enrichment mapping report generation.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/60882704/138286223-6ac73071-f4b7-4d4b-8263-f93484b205aa.png" >
@@ -325,7 +327,7 @@ Generate the following files:
 2. Fill out the form and click _Next_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141087988-0c109442-9f17-4dcd-a8b5-19b55a574abc.png" >
+<img src="https://user-images.githubusercontent.com/60882704/142177696-6136f7ee-2ba0-426a-a791-607e60b109fb.png" >
 </p>
 
 
@@ -333,15 +335,14 @@ See description of fields here:
 
 | Field	| Description |
 | --- | --- |
-|   **Reference file** |   Path to reference file  |
+|   **Reference file** |   Path to reference file (fasta format) |
 |   **Save path** |   Main directory to save the downloaded reference in  |
 
 3. Fill out the rest of the form and click _Run_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141088943-cab71032-e08d-4edb-85d1-0d42b5356bac.png" >
+<img src="https://user-images.githubusercontent.com/60882704/142178084-8fa61956-1307-4439-a6d6-979a839093fe.png" >
 </p>
-
 
 
 See description of fields here:
@@ -367,7 +368,7 @@ See description of fields here:
 <img src="https://user-images.githubusercontent.com/60882704/141128960-24312e54-87d3-434f-a8ee-f71f97517d2e.png" >
 </p>
 
-Analysis tools for generation of enrichment mapping report and adding tags to alignments for Oxford Nanopore® Technologies and Illumina® data.​
+Analysis tools for generation of enrichment mapping report and adding tags to alignments for Oxford Nanopore® Technologies and Illumina® data.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/60882704/138286397-c3b80ca1-e9f6-491f-9359-e161d059b903.png" >
@@ -381,9 +382,7 @@ Analysis tools for generation of enrichment mapping report and adding tags to al
 
 
 
-The enrichment mapping report pipeline can be performed on both ILMN and ONT fastq files. The majority of the pipeline is the same, however, there are some slight differences prior to mapping. FastQC is performed on ILMN fastq files before and after trimming with trimmomatic as a QC measure. The outputs are run reports in html format.
-
-Mapping is performed with minimap2 and bwa-mem for ONT and ILMN data, respectively, with standard parameters and output in SAM format. After mapping, SAMtools is used to convert the SAM file into a compressed binary SAM format: BAM. The BAM file is subsequently manipulated in SAMtools. Read lengths are obtained for the different target regions (ROI, customizable region and 10 kb regions) using awk. Softclipped regions are obtained using our own python scripts. Genome coverage is obtained using Qualimap. BAM files and statistics obtained from SAMtools, together with sequence lengths and genome coverage are processed in R, utilizing our own Rscript. This generates the figures and table incorporated into the reports. The reports are generated using docx-tpl and soffice.
+The enrichment mapping report pipeline can be performed on both ILMN and ONT fastq files. It generates a report containing read, mapping and enrichment stats. See [enrichment mapping report manual](https://github.com/Samplix-ApS/Bioinformatics_tools/blob/main/Emap_report_manual/) for further details.
 
 1. Click _Enrichment mapping report_ under Analysis tools.
 
@@ -413,30 +412,33 @@ Mapping is performed with minimap2 and bwa-mem for ONT and ILMN data, respective
    * File paths for ONT or ILMN
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141093267-0a800060-8ed4-4447-983b-780a3f3611a9.png">
+<img src="https://user-images.githubusercontent.com/60882704/142179534-897f00bf-6e83-49bd-8fb7-32edbd751922.png">
 </p>
+
 
 
    * Region of Interest:
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141093503-8d3cd64c-8ceb-4369-af6b-f4edf4b5437c.png">
+<img src="https://user-images.githubusercontent.com/60882704/142179768-1e489c16-92c2-4655-a94c-c74b68de3df2.png">
 </p>
 
 
    * Other settings
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141094855-55f1b332-eaae-4079-8fa5-02533531d46e.png" >
+<img src="https://user-images.githubusercontent.com/60882704/141502341-330cdf9b-5b35-4b8d-ac0d-f39251c47cb6.png" >
 </p>
+
 
 
 
    * Advanced Settings for ONT or ILMN
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141098689-e58ff53f-7208-48c6-be3c-cee8e4268095.png" >
+<img src="https://user-images.githubusercontent.com/60882704/142180005-a425be6e-d6ba-4fa8-b5a1-aa2d203dc5ff.png" >
 </p>
+
 
 
 
@@ -454,7 +456,7 @@ See description of fields here:
 | **First input file path** | First input fastx file for paired-end ILMN data |
 | **Second input file path**  | Second input fastx file for paired-end ILMN data  |
 | **Reference file path** | Path to reference fasta file  |
-| **Bed file path** | Path to bedfile for chromosome of interest  |
+| **Bed file path** | Path to bedfile for chromosome of the region of interest  |
 | **KaryoploteR genome file path**  | Path to custom genome file for KaryoploteR  |
 | **ROI coordinates** | Start and end coordinates for region of interest. Size is auto-calculated  |
 | **Validation sequence** | Start and end coordinates for validation sequence(s). Size is auto-calculated  |
@@ -467,7 +469,7 @@ See description of fields here:
 | **minimap2 additional arguments** | Advanced. Provide additional mapping arguments to minimap2. |
 | **BWA-MEM additional arguments**  | Advanced. Provide additional mapping arguments to bwa-mem |
 
-4. Click _Run the pipeline_ to run the enrichment mapping report pipeline. An e-mail will be sent upon completion
+4. Click _Create config file_ to create the config file needed to run the pipeline.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/60882704/141096613-d8f3b23f-06ce-486b-ba40-64309a8f6460.png" >
@@ -477,10 +479,12 @@ See description of fields here:
 5. Click _Run the pipeline_ to run the enrichment mapping report pipeline. An e-mail will be sent upon completion
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141098939-8ede6861-d0f5-4631-a372-52d12b817bf2.png" >
+<img src="https://user-images.githubusercontent.com/60882704/141504001-1d5cb577-16f8-4ed5-b961-53bd3d21fb6f.png" >
 </p>
 
 
+
+6. Generated output files can be found in _/input-data/ONT_Analysis_date_time_stamp_report-name_, e.g.: <br/> _/input-data/ONT_Analysis_2021_11_12_18_59_34.483883054_TP53_test_. <br/> See the [enrichment mapping report manual](https://github.com/Samplix-ApS/Bioinformatics_tools/blob/main/Emap_report_manual/README.md#output_) for an overview of the generated BAM files. 
 
 ### <a name="add_tags"></a> Add tags to alignment
 
@@ -523,7 +527,7 @@ See description of fields here:
 [Obtain primary assembly](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation#prim_)
 
 # <a name="help_"></a> Trouble shooting
-Contact samplix.com
+Contact bioinformatics@samplix.com
 
 # <a name="authors_"></a> Authors
 Camille Johnston (CAJ)
