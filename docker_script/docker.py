@@ -60,7 +60,7 @@ def docker_container_ID():
             if count >= len(list_up):
                 print('Please provide correct Container_ID')
             session_id = input('Container_ID: ')
-            for container_id, status, time in list_up:
+            for container_id, status, time, port_range in list_up:
                 count += 1
                 if container_id == session_id:
                     match = 'true'
