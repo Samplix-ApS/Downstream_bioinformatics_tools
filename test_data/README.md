@@ -9,6 +9,7 @@
 - [Assay information](#assay_info)
 - [Generated reports](#reports_)
   - [Basecalling report](#basecalling_report_) 
+  - [FastQC reports](#fastqc_reports_)
   - [Enrichment mapping report](#enrichment_report_)
 - [Troubleshooting](#help_)
 - [Authors](#authors)
@@ -57,6 +58,11 @@ Basecalling report generated using pycoQC
 
 [**basecalling_report.html**](https://samplix-public-data.s3.amazonaws.com/public-data/test_data/reports/basecalling_report.html)
 
+## <a name="fastqc_reports_"></a> FastQC reports
+FastQC report pre- and post-trim of ILMN fastq:
+
+[**ILMN_fastqc_reports**](https://samplix-public-data.s3.amazonaws.com/public-data/test_data/reports/ILMN_fastqc_reports.zip)
+
 ## <a name="enrichment_report_"></a> Enrichment mapping report
 ### ONT: Enrichment mapping report
 
@@ -69,6 +75,7 @@ Size: 1.1 mb
 Size: 959 kb
 
 [**emap_ILMN_report.pdf**](https://samplix-public-data.s3.amazonaws.com/public-data/test_data/reports/emap_ILMN_report.pdf)
+
 
 # <a name="help_"></a>Troubleshooting
 Contact bioinformatics@samplix.com
