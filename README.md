@@ -170,11 +170,8 @@ See the [download references manual](https://github.com/Samplix-ApS/Bioinformati
 2. Fill out the form and click _Download_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141085401-97dc55f6-6492-4048-8a25-cc28fb40c366.png" >
+<img src="https://user-images.githubusercontent.com/60882704/142181926-13486aab-670b-4999-9cd7-9da57718330e.png" >
 </p>
-
-
-
 
 See description of fields here:
 
@@ -211,7 +208,7 @@ See the [**download annotation manual**](https://github.com/Samplix-ApS/Bioinfor
 2. Fill out the form and click _Download_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141086252-25cb975d-891b-4ab1-a2a8-09ce9e4b49de.png">
+<img src="https://user-images.githubusercontent.com/60882704/142182046-f2755bd7-0854-44c5-a933-83b878d205bb.png">
 </p>
 
 
@@ -257,7 +254,7 @@ If your reference contains a primary assembly, create a list of these chromosome
 2. Fill out the form and click _Next_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141087105-a6fc3b0f-d6e2-4788-b9e1-c3e0cf00eb1f.png" >
+<img src="https://user-images.githubusercontent.com/60882704/142181436-659a9b45-8e3f-4ab6-b6ac-c4b767f94445.png" >
 </p>
 
 
@@ -266,13 +263,13 @@ See description of fields here:
 
 | Field	| Description |
 | --- | --- |
-|   **Reference file** |   Path to reference file  |
+|   **Reference file** |   Path to reference file (fasta format) |
 |   **Save path** |   Main directory to save the downloaded reference in  |
 
 3. Fill out the rest of the form and click _Run_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141087524-857df035-d897-4d42-ba3a-435259661b14.png">
+<img src="https://user-images.githubusercontent.com/60882704/142181627-5cdb3500-7567-4771-a00e-f829c896c65e.png">
 </p>
 
 
@@ -330,7 +327,7 @@ Generate the following files:
 2. Fill out the form and click _Next_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141087988-0c109442-9f17-4dcd-a8b5-19b55a574abc.png" >
+<img src="https://user-images.githubusercontent.com/60882704/142177696-6136f7ee-2ba0-426a-a791-607e60b109fb.png" >
 </p>
 
 
@@ -338,15 +335,14 @@ See description of fields here:
 
 | Field	| Description |
 | --- | --- |
-|   **Reference file** |   Path to reference file  |
+|   **Reference file** |   Path to reference file (fasta format) |
 |   **Save path** |   Main directory to save the downloaded reference in  |
 
 3. Fill out the rest of the form and click _Run_
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141088943-cab71032-e08d-4edb-85d1-0d42b5356bac.png" >
+<img src="https://user-images.githubusercontent.com/60882704/142178084-8fa61956-1307-4439-a6d6-979a839093fe.png" >
 </p>
-
 
 
 See description of fields here:
@@ -416,14 +412,15 @@ The enrichment mapping report pipeline can be performed on both ILMN and ONT fas
    * File paths for ONT or ILMN
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141093267-0a800060-8ed4-4447-983b-780a3f3611a9.png">
+<img src="https://user-images.githubusercontent.com/60882704/142179534-897f00bf-6e83-49bd-8fb7-32edbd751922.png">
 </p>
+
 
 
    * Region of Interest:
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141093503-8d3cd64c-8ceb-4369-af6b-f4edf4b5437c.png">
+<img src="https://user-images.githubusercontent.com/60882704/142179768-1e489c16-92c2-4655-a94c-c74b68de3df2.png">
 </p>
 
 
@@ -439,8 +436,9 @@ The enrichment mapping report pipeline can be performed on both ILMN and ONT fas
    * Advanced Settings for ONT or ILMN
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141503337-1f567299-c514-42de-b315-f73ee1e011f5.png" >
+<img src="https://user-images.githubusercontent.com/60882704/142180005-a425be6e-d6ba-4fa8-b5a1-aa2d203dc5ff.png" >
 </p>
+
 
 
 
