@@ -166,6 +166,8 @@ If you do not already have a reference, you can use the download reference tool.
 
 See the [download references manual](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation#download_ref) on how to obtain refseq and genbank ftp links.
 
+There are some references ready and available for use in our [Refseq database]
+
 1. Click _Download reference_ under Reference tools.
 
 <p align="center">
