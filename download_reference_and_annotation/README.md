@@ -27,7 +27,7 @@ For example the human genome build 38 patch 13 (GRCh38.p13 also known as hg38) o
 
 
 
-3. In docker follow the [**download reference instructions**](https://github.com/Samplix-ApS/Bioinformatics_tools#download_ref)
+3. In the web-interface follow the [**download reference instructions**](https://github.com/Samplix-ApS/Bioinformatics_tools#download_ref)
 
 ## <a name="download_gff"></a> Download annotation
 If you need annotations for your reference and you do not already have them, then you can use the [download annotation tool](https://github.com/Samplix-ApS/Bioinformatics_tools#download_annot).
@@ -50,7 +50,7 @@ For example the human genome build 38 patch 13 (GRCh38.p13 also known as hg38) o
 
 
 
-3. In docker follow the [**download annotation instructions**](https://github.com/Samplix-ApS/Bioinformatics_tools#download_annot)
+3. In the web-interface follow the [**download annotation instructions**](https://github.com/Samplix-ApS/Bioinformatics_tools#download_annot)
 
 ## <a name="prim_"></a> Primary assembly extraction and renaming
 If you wish to extract or change the names of the primary assembly in your reference while using [merge scaffolds](https://github.com/Samplix-ApS/Bioinformatics_tools#merge_scaffold) or [prepare reference](https://github.com/Samplix-ApS/Bioinformatics_tools#prep_ref) follow the instructions below.
