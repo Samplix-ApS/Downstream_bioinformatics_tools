@@ -6,6 +6,7 @@
 ## Table of Contents
 - [Getting started](#get_started)
   - [Test data](#test_data_) 
+  - [Refseq database](#refseq_database_)
 - [Basecalling tools](#basecall_tools)
   - [Basecalling](#basecalling_)
   - [Basecalling report](#basecalling_report)
@@ -41,6 +42,9 @@ If you do not know your public IP address, please contact your local IT support.
 ### <a name="test_data_"></a> Test data
 Enriched TP53 test data can be downloaded from the [**test data set**](https://github.com/Samplix-ApS/Bioinformatics_tools/blob/main/test_data/README.md).
 This can be used to test the different bioinformatics tools. It contains ONT fast5 files, ONT fastq and ILMN fastq files, as well as the generated reports. 
+
+### <a name="refseq_database_"></a> Refseq database
+There are some references ready and available for use in our [Refseq database](http://samplix-public-data.s3-website.eu-central-1.amazonaws.com/?prefix=public-data/Refseq/). The human genomes have already been indexed with bwa for use with Illumina reads. 
 
 ## <a name="basecall_tools"></a> Basecalling tools
 <p align="center">
@@ -166,7 +170,7 @@ If you do not already have a reference, you can use the download reference tool.
 
 See the [download references manual](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation#download_ref) on how to obtain refseq and genbank ftp links.
 
-There are some references ready and available for use in our [Refseq database]
+There are some references ready and available for use in our [Refseq database](http://samplix-public-data.s3-website.eu-central-1.amazonaws.com/?prefix=public-data/Refseq/)
 
 1. Click _Download reference_ under Reference tools.
 
