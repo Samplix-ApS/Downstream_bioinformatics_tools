@@ -17,6 +17,9 @@
 # <a name="descript_"></a> Description
 Below you will find an enriched TP53 test data set you can use to test the pipeline. 
 
+All data can be found publically available on our S3 server:
+[**test-data**](http://samplix-public-data.s3-website.eu-central-1.amazonaws.com/?prefix=public-data/test_data/)
+
 # <a name="fast5_"></a> FAST5
 Library constructed with ligation sequencing kit (SQK-LSK109) and no barcodes.
 
