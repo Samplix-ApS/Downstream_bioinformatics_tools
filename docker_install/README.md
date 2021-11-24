@@ -2,7 +2,8 @@
 
 ## Table of Contents
 - [Description](#descript_)
-- [Installation](#install_)
+- [System recommendations](#system_rec)
+- [Installation](#install_) 
   - [Linux](#linux_)
     - [Enable GPUs](#linux_gpu)
   - [Microsoft Windows](#windows_)
@@ -27,6 +28,15 @@
 # <a name="descript_"></a> Description
 Samplix analysis tools docker image is available publicly on docker hub.
 It contains tools for basecalling and basecalling report generation of Oxford Nanopore Technologies® reads, sequencing enrichment validation of enriched of samples in the form of an enrichment mapping report for both Oxford Nanopore Technologies® and Illumina® reads, as well as the necessary reference handling tools for report generation and tools for aiding with visualization of insertions. 
+# <a name="system_rec"></a> System recommendations
+
+| Type | CPU | RAM | GPU |
+|------|-----|-----|-----|
+|Small genomes <4GB |16 GB| 32 GB| - |
+|Large genomes >4GB or De novo| 64 GB | 128 GB | - |
+|Basecalling | 8 GB | 61 GB | Tesla V100 </br> 16 GB mem |
+
+
 # <a name="install_"></a> Installation
 ## <a name="linux_"></a> Linux 
 1. Download and install the [Docker for Linux](https://docs.docker.com/get-docker/).
@@ -216,7 +226,7 @@ tools available in the image.
 | /pipelines/basecall         | 2.0.0       | /pipelines/basecall                      |
 | /pipelines/analysispipeline | 2.0.0       | Available at /pipelines/analysispipeline |
 
-Basecalling and enrichment mapping pipleine's executables can be accessed within docker container by running the following commands:
+Basecalling and enrichment mapping pipelines' executables can be accessed within docker container by running the following commands:
 ```
 /pipelines/basecall -help
 ```
