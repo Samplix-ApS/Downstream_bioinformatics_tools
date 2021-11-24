@@ -361,7 +361,7 @@ See description of fields here:
 
 | Field	| Description |
 | --- | --- |
-|   **Index reference for use in IGV** |   Optional. An indexed reference file is required for viewin in IGV. Is significantly faster than indexing locally. |
+|   **Index reference for use in IGV** |   Optional. An indexed reference file is required for viewing in IGV. Is significantly faster than indexing locally. |
 |   **Create BWA index for ILMN** |   Optional. BWA index is required when running the ILMN enrichment mapping report pipeline. This is time consuming  |
 |   **Change size limit** |   Default size limit is 2^29 (536970912) bp. Samtools cannot use bai index for sizes above this limit. |
 |   **Extract primary assembly** |   Optional. Provide a list of the primary assembly to extract. See [**primary assembly extraction**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation#prim_)  |
