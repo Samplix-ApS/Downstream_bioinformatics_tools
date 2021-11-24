@@ -1,11 +1,27 @@
 import subprocess
-import warnings
 import sys, getopt
 import os
 import re
-import gzip
-import pandas as pd
-from os import path
+
+try:
+    import pandas as pd
+except ModuleNotFoundError:
+    pip_install = subprocess.run([sys.executable, '-m', 'pip', 'install', 'pandas'])
+    if pip_install.returncode != 0:
+        print('Please install python package: pandas')
+        quit()
+    else:
+        import pandas as pd
+
+try:
+    import torch
+except ModuleNotFoundError:
+    pip_install = subprocess.run([sys.executable, '-m', 'pip', 'install', 'torch'])
+    if pip_install.returncode != 0:
+        print('Please install python package: torch')
+        quit()
+    else:
+        import torch
 
 docker_tools = 'samplix/samplix_analysis_tools:latest'
 
@@ -17,6 +33,14 @@ class HiddenPrints:
     def __exit__(self, exc_type, exc_val, exc_tb):
         sys.stdout.close()
         sys.stdout = self._original_stdout
+
+def validate_CUDA():
+    CUDA_available = torch.cuda.is_available()
+    if CUDA_available != True:
+        print('\n###################################################')
+        print('WARNING! Cannot detect CUDA installation.\nNVIDIA GPUs are necessary to use Basecalling tools.\nPlease install the necessary drivers.')
+        print('\n###################################################')
+        quit()
 
 def print_help():
     print ('docker.py <arguments>\n')
@@ -95,24 +119,24 @@ def docker_pull():
     print('Pulling latest docker')
     call_docker = subprocess.run(['docker', 'pull', docker_tools])
 
-def return_code_start(process, basecalling_tools):
+def return_code_start(process):
     if process.returncode == 125:
         print('\n######################################################################')
         print('DOCKER INITIATION FAILED\n')
+        print('Docker exit code 125: Error in Docker daemon')
         try:
             with HiddenPrints():
                 docker_container_ID()
-            print('Docker is running:')
+            print('\nDocker is already running:')
             docker_container_ID()
-
         except ValueError as e:
-            if basecalling_tools == 'true':
-                print('Please ensure you are running on a device with GPUs')
-            else:
                 print(e)
         print('\n######################################################################')
         quit()
-
+    elif process.returncode == 126:
+        print('DOCKER INITIATION FAILED')
+        print('Docker exit code 126: Permission problem or command is not executable')
+        quit()
 
 def docker_analysis(input_data, refseq_data, port_range, basecalling_tools, secure):
     if basecalling_tools == 'false':
@@ -124,7 +148,7 @@ def docker_analysis(input_data, refseq_data, port_range, basecalling_tools, secu
         if secure == 'true':
             call_docker = subprocess.Popen(['docker', 'run', '-td', '-v',input_data, '-v', refseq_data,'-e', 'SECURE=true', '-p', port_range, docker_tools],stdout=subprocess.PIPE)
         stdout, stderr = call_docker.communicate()
-        return_code_start(call_docker, basecalling_tools)
+        return_code_start(call_docker)
         docker_session=stdout.decode("utf-8").strip()[0:12]
         print('Docker container initiated:', docker_session)
         print('Port range:', port_range)
@@ -206,13 +230,14 @@ def validate_dir(dir, string_dir):
 def docker_basecall(input_data, port_range, basecalling_tools, secure):
     if basecalling_tools == 'true':
         validate_dir(input_data, 'input-data')
+        validate_CUDA()
         print('\nInitiating docker basecalling_tools')
         if secure == 'false':
             call_docker = subprocess.Popen(['docker', 'run', '-td', '--gpus', 'all', '-v',input_data,'-p', port_range, docker_tools],stdout=subprocess.PIPE)
         if secure == 'true':
             call_docker = subprocess.Popen(['docker', 'run', '-td', '--gpus', 'all', '-v',input_data,'-e','SECURE=true','-p', port_range, docker_tools],stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = call_docker.communicate()
-        return_code_start(call_docker, basecalling_tools)
+        return_code_start(call_docker)
         docker_session=stdout.decode("utf-8").strip()[0:12]
         print('Docker container initiated:', docker_session)
         print('Port range:', port_range)
