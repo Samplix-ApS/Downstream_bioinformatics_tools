@@ -14,7 +14,7 @@
   - [Python docker script](#python_docker)
   - [Pull latest image](#pull_docker)
   - [Run Reference and Analysis tools](#docker_web) 
-  - [Run Basecalling tools (GPUs exposed)](run_gpu)
+  - [Run Basecalling tools (GPUs exposed)](#run_gpu)
 - [Useful docker commands](#docker_cmds)
 - [Trouble shooting](#help_)
 - [Authors](#authors_)
