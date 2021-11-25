@@ -4,8 +4,7 @@
 [User's guide](#uguide)
 - [Getting started](#get_started)
   - [Requirements](#requirements_)
-  - [Download docker.py locally](#download_local)
-  - [Download docker.py to server](#download_server) 
+  - [Download docker.py](#download_docker)
 - [Description](#descript_)
   - [Initiate the Reference and Analysis tools](#start_docker)
   - [Initiate the Basecalling tools](#start_basecall)
@@ -22,7 +21,10 @@ The Samplix docker must be installed. See [**docker installation manual**](https
 * python3
 * python3 pip
 
-### <a name="download_local"></a> Download docker.py locally
+### <a name="download_docker"></a> Download docker.py
+You can download docker to your local computer or to the server you are working on. The docker.py must be executed on the device where you have docker installed. 
+
+#### Download docker.py locally
 1. Click on docker.py
 
 <p align="center">
@@ -38,7 +40,7 @@ The Samplix docker must be installed. See [**docker installation manual**](https
 3. Save the file with the correct file extension, i.e. **_.py_**
 
 
-### <a name="download_server"></a> Download docker.py to server
+####  Download docker.py to server
 1. Click on docker.py
 
 <p align="center">
