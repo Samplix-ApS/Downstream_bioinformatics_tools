@@ -1,11 +1,7 @@
 # Test data set
 
 ## Table of Contents
-- [Description](#descript_)
-- [FAST5](#fast5_)
-- [FASTQ](#fastq_)
-  - [ONT](#ont_fastq_)
-  - [ILMN](#ilmn_fastq_)
+- [Overview](#descript_)
 - [Assay information](#assay_info)
 - [Generated reports](#reports_)
   - [Basecalling report](#basecalling_report_) 
@@ -14,33 +10,19 @@
 - [Troubleshooting](#help_)
 - [Authors](#authors)
 
-# <a name="descript_"></a> Description
+# <a name="descript_"></a> Overview
 Below you will find an enriched TP53 test data set you can use to test the pipeline. 
 
 All data can be found publically available on our S3 server:
 [**test-data**](http://samplix-public-data.s3-website.eu-central-1.amazonaws.com/?prefix=public-data/test_data/)
 
+| File name | Seq type | File format | Size | Note |
+| --- | --- | --- | --- | --- |
+| fast5.zip | ONT | fast5 | 9.9 GB | Library constructed with ligation sequencing kit (SQK-LSK109) </br> No barcodes.|
+| fastq_ont.zip | ONT | fastq | 762 MB | |
+| fastq_ilm.zip | ILMN | fastq | 1.4 GB | Paired-end. |
 
 
-# <a name="fast5_"></a> FAST5
-Library constructed with ligation sequencing kit (SQK-LSK109) and no barcodes.
-
-Size: 9.9 GB
-
-[**fast5.zip**](http://samplix-public-data.s3-eu-central-1.amazonaws.com/public-data/test_data/fast5.zip)
-
-# <a name="fastq_"></a> FASTQ
-## <a name="ont_fastq_"></a> ONT
-Size: 782 MB.
-
-[**fastq_ont.zip**](http://samplix-public-data.s3-eu-central-1.amazonaws.com/public-data/test_data/fastq_ont.zip)
-
-## <a name="ilmn_fastq_"></a> ILMN
-Library type: Paired-end.
-
-Size: 1.4 gb.
-
-[**fastq_ilmn.zip**](http://samplix-public-data.s3-eu-central-1.amazonaws.com/public-data/test_data/fastq_ilmn.zip)
 
 # <a name="assay_info"></a> Assay information
 
