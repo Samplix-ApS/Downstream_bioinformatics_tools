@@ -20,6 +20,8 @@ Below you will find an enriched TP53 test data set you can use to test the pipel
 All data can be found publically available on our S3 server:
 [**test-data**](http://samplix-public-data.s3-website.eu-central-1.amazonaws.com/?prefix=public-data/test_data/)
 
+
+
 # <a name="fast5_"></a> FAST5
 Library constructed with ligation sequencing kit (SQK-LSK109) and no barcodes.
 
@@ -31,7 +33,7 @@ Size: 9.9 GB
 ## <a name="ont_fastq_"></a> ONT
 Size: 782 MB.
 
-[**fastq_ont**](http://samplix-public-data.s3-eu-central-1.amazonaws.com/public-data/test_data/fastq_ont/TP53.fastq.gz)
+[**fastq_ont.zip**](http://samplix-public-data.s3-eu-central-1.amazonaws.com/public-data/test_data/fastq_ont.zip)
 
 ## <a name="ilmn_fastq_"></a> ILMN
 Library type: Paired-end.
