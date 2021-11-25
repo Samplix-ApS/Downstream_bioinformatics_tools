@@ -491,8 +491,9 @@ See description of fields here:
 5. Click _Run the pipeline_ to run the enrichment mapping report pipeline. An e-mail will be sent upon completion
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141504001-1d5cb577-16f8-4ed5-b961-53bd3d21fb6f.png" >
+<img src="https://user-images.githubusercontent.com/60882704/143417130-19dee2a8-a0dc-4d93-9404-374432e17d52.png" >
 </p>
+
 
 
 
