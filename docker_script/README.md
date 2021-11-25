@@ -3,8 +3,8 @@
 ## Table of Contents
 [User's guide](#uguide)
 - [Getting started](#get_started)
-  - [Download docker.py locally](#download_local)
-  - [Download docker.py to server](#download_server) 
+  - [Requirements](#requirements_)
+  - [Download docker.py](#download_docker)
 - [Description](#descript_)
   - [Initiate the Reference and Analysis tools](#start_docker)
   - [Initiate the Basecalling tools](#start_basecall)
@@ -17,7 +17,14 @@
 ## <a name="get_started"></a> Getting started
 The Samplix docker must be installed. See [**docker installation manual**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_install).
 
-### <a name="download_local"></a> Download docker.py locally
+### <a name="requirements_"></a> Requirements
+* python3
+* python3 pip
+
+### <a name="download_docker"></a> Download docker.py
+You can download docker to your local computer or to the server you are working on. The docker.py must be executed on the device where you have docker installed. 
+
+#### Download docker.py locally
 1. Click on docker.py
 
 <p align="center">
@@ -33,7 +40,7 @@ The Samplix docker must be installed. See [**docker installation manual**](https
 3. Save the file with the correct file extension, i.e. **_.py_**
 
 
-### <a name="download_server"></a> Download docker.py to server
+####  Download docker.py to server
 1. Click on docker.py
 
 <p align="center">

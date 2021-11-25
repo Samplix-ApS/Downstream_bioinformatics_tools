@@ -1,11 +1,7 @@
 # Test data set
 
 ## Table of Contents
-- [Description](#descript_)
-- [FAST5](#fast5_)
-- [FASTQ](#fastq_)
-  - [ONT](#ont_fastq_)
-  - [ILMN](#ilmn_fastq_)
+- [Overview](#descript_)
 - [Assay information](#assay_info)
 - [Generated reports](#reports_)
   - [Basecalling report](#basecalling_report_) 
@@ -14,31 +10,19 @@
 - [Troubleshooting](#help_)
 - [Authors](#authors)
 
-# <a name="descript_"></a> Description
+# <a name="descript_"></a> Overview
 Below you will find an enriched TP53 test data set you can use to test the pipeline. 
 
 All data can be found publically available on our S3 server:
 [**test-data**](http://samplix-public-data.s3-website.eu-central-1.amazonaws.com/?prefix=public-data/test_data/)
 
-# <a name="fast5_"></a> FAST5
-Library constructed with ligation sequencing kit (SQK-LSK109) and no barcodes.
+| File name | Seq type | File format | Size | Note |
+| --- | --- | --- | --- | --- |
+| fast5.zip | ONT | fast5 | 9.9 GB | Library constructed with ligation sequencing kit (SQK-LSK109) </br> No barcodes.|
+| fastq_ont.zip | ONT | fastq | 762 MB | |
+| fastq_ilm.zip | ILMN | fastq | 1.4 GB | Paired-end. |
 
-Size: 9.9 GB
 
-[**fast5.zip**](https://samplix-public-data.s3.amazonaws.com/public-data/test_data/fast5.zip)
-
-# <a name="fastq_"></a> FASTQ
-## <a name="ont_fastq_"></a> ONT
-Size: 782 MB.
-
-[**fastq_ont**](https://s3.amazonaws.com/samplix-public-data/public-data/test_data/fastq_ont)
-
-## <a name="ilmn_fastq_"></a> ILMN
-Library type: Paired-end.
-
-Size: 1.4 gb.
-
-[**fastq_ilmn.zip**](https://samplix-public-data.s3.amazonaws.com/public-data/test_data/fastq_ilmn.zip)
 
 # <a name="assay_info"></a> Assay information
 
@@ -59,25 +43,25 @@ Size: 1.4 gb.
 ## <a name="basecalling_report_"></a> Basecalling report
 Basecalling report generated using pycoQC
 
-[**basecalling_report.html**](https://samplix-public-data.s3.amazonaws.com/public-data/test_data/reports/basecalling_report.html)
+[**basecalling_report.html**](http://samplix-public-data.s3-eu-central-1.amazonaws.com/public-data/test_data/reports/basecalling_report.html)
 
 ## <a name="fastqc_reports_"></a> FastQC reports
 FastQC report pre- and post-trim of ILMN fastq:
 
-[**ILMN_fastqc_reports**](https://samplix-public-data.s3.amazonaws.com/public-data/test_data/reports/ILMN_fastqc_reports.zip)
+[**ILMN_fastqc_reports**](http://samplix-public-data.s3-eu-central-1.amazonaws.com/public-data/test_data/reports/ILMN_fastqc_reports.zip)
 
 ## <a name="enrichment_report_"></a> Enrichment mapping report
 ### ONT: Enrichment mapping report
 
 Size: 1.1 mb
 
-[**emap_ONT_report.pdf**](https://samplix-public-data.s3.amazonaws.com/public-data/test_data/reports/emap_ONT_report.pdf)
+[**emap_ONT_report.pdf**](http://samplix-public-data.s3-eu-central-1.amazonaws.com/public-data/test_data/reports/emap_ONT_report.pdf)
 
 ### ILMN: Enrichment mapping report
 
 Size: 959 kb
 
-[**emap_ILMN_report.pdf**](https://samplix-public-data.s3.amazonaws.com/public-data/test_data/reports/emap_ILMN_report.pdf)
+[**emap_ILMN_report.pdf**](http://samplix-public-data.s3-eu-central-1.amazonaws.com/public-data/test_data/reports/emap_ILMN_report.pdf)
 
 
 # <a name="help_"></a>Troubleshooting
