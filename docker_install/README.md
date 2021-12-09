@@ -40,7 +40,7 @@ It contains tools for basecalling and basecalling report generation of Oxford Na
 # <a name="install_"></a> Installation
 ## <a name="linux_"></a> Linux 
 1. Download and install the [Docker for Linux](https://docs.docker.com/get-docker/).
-2. Follow the [installation instructions](https://docs.docker.com/engine/install/) for your linux distribution.
+2. Follow the [installation instructions](https://docs.docker.com/engine/install/) for your Linux distribution.
 
 ### <a name="linux_gpu"></a> Enable GPUs
 If you wish to use the Basecalling tools the GPUs need to be available to the docker container. 
@@ -82,8 +82,7 @@ You will need:
 
 
 # <a name="run_docker"></a> How to run the Samplix docker image
-Samplix actively develop, build and push the following docker image to
-the docker hub registery: 
+Samplix actively develops, builds and pushes the following docker image to the docker hub registery: 
 
 **samplix/samplix_analysis_tools:latest**
 
