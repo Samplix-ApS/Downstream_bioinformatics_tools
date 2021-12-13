@@ -8,8 +8,8 @@
     - [Enable GPUs](#linux_gpu)
   - [Microsoft Windows](#windows_)
     - [Enable GPUs](#windows_gpu)
-- [How to run the Samplix docker image](#run_docker)
-  - [Commands integrated into python docker script](#python_docker)
+- [How to run the Samplix Docker image](#run_docker)
+  - [Commands integrated into python Docker script](#python_docker)
     - [Pull latest image](#pull_docker)
     - [Run Reference and Analysis tools](#docker_web) 
     - [Run Basecalling tools (GPUs exposed)](#run_gpu)
@@ -26,7 +26,7 @@
 - [Authors](#authors_)
 
 # <a name="descript_"></a> Description
-Samplix analysis tools docker image is available publicly on docker hub.
+Samplix analysis tools Docker image is available publicly on Docker hub.
 It contains tools for basecalling and basecalling report generation of Oxford Nanopore Technologies® reads, sequencing enrichment validation of enriched of samples in the form of an enrichment mapping report for both Oxford Nanopore Technologies® and Illumina® reads, as well as the necessary reference handling tools for report generation and tools for aiding with visualization of insertions. 
 # <a name="system_rec"></a> System recommendations
 
@@ -43,7 +43,7 @@ It contains tools for basecalling and basecalling report generation of Oxford Na
 2. Follow the [installation instructions](https://docs.docker.com/engine/install/) for your Linux distribution.
 
 ### <a name="linux_gpu"></a> Enable GPUs
-If you wish to use the Basecalling tools the GPUs need to be available to the docker container. 
+If you wish to use the Basecalling tools the GPUs need to be available to the Docker container. 
 1. Download and install [Nvidia CUDA version 11.xx](https://developer.nvidia.com/cuda-downloads)
 2. Download and install [Nvidia_container_runtime](https://github.com/NVIDIA/nvidia-container-runtime). Follow the [installation guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
 
@@ -62,7 +62,7 @@ If you wish to use the Basecalling tools the GPUs need to be available to the do
 
 ### <a name="windows_gpu"></a> Enable GPUs
 
-If you wish to use the Basecalling tools the GPUs need to be available to the docker container.</br>
+If you wish to use the Basecalling tools the GPUs need to be available to the Docker container.</br>
 You will need:
 * A machine with an NVIDIA GPU
 * The latest Windows Insider version from the Dev Preview ring
@@ -81,8 +81,8 @@ You will need:
 * See the [best practices](https://docs.docker.com/desktop/windows/wsl/#best-practices) on how to get the best out of the file system performance when bind-mounting files.
 
 
-# <a name="run_docker"></a> How to run the Samplix docker image
-Samplix actively develops, builds and pushes the following docker image to the docker hub registery: 
+# <a name="run_docker"></a> How to run the Samplix Docker image
+Samplix actively develops, builds and pushes the following Docker image to the Docker hub registery: 
 
 **samplix/samplix_analysis_tools:latest**
 
@@ -91,14 +91,14 @@ This image is available at our public repository:
 <https://hub.docker.com/r/samplix/samplix_analysis_tools>
 
 
-## <a name="python_docker"></a> Commands integrated into python docker script
-For ease in running the docker image a python script has been provided ([**docker script**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script)). Please use this script.
+## <a name="python_docker"></a> Commands integrated into python Docker script
+For ease in running the Docker image a python script has been provided ([**Docker script**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script)). Please use this script.
 
-It automatically pulls the latest image when iniating the docker in [Reference and Analysis tools mode](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script#start_docker) or in [Basecalling tools mode](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script#start_basecall) with GPUs exposed, both in _HTTP_ or _HTTPS_ mode. It also allows you to easily [stop](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script#stop_docker) the active docker container, as well as easily accessing [bash mode](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script#bash_docker). 
+It automatically pulls the latest image when iniating the Docker in [Reference and Analysis tools mode](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script#start_docker) or in [Basecalling tools mode](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script#start_basecall) with GPUs exposed, both in _HTTP_ or _HTTPS_ mode. It also allows you to easily [stop](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script#stop_docker) the active Docker container, as well as easily accessing [bash mode](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script#bash_docker). 
 
 
 ### <a name="pull_docker"></a> Pull latest image
-Pull latest docker image:
+Pull latest Docker image:
 ```
 docker pull samplix/samplix_analysis_tools:latest
 ```
@@ -169,7 +169,7 @@ docker system prune -a
 
 
 
-To delete a docker image:
+To delete a Docker image:
 ```
 docker rmi [image id]
 ```
@@ -190,7 +190,7 @@ docker rmi [image id]
 
 # <a name="avail_tools"></a> Available tools
 
-The docker image _**samplix/samplix_analysis_tools**_ is based on
+The Docker image _**samplix/samplix_analysis_tools**_ is based on
 _**debian:latest**_ docker image. Following is a non exhaustive list of
 tools available in the image.
 
@@ -225,7 +225,7 @@ tools available in the image.
 | /pipelines/basecall         | 2.0.0       | /pipelines/basecall                      |
 | /pipelines/analysispipeline | 2.0.0       | Available at /pipelines/analysispipeline |
 
-Basecalling and enrichment mapping pipelines' executables can be accessed within docker container by running the following commands:
+Basecalling and enrichment mapping pipelines' executables can be accessed within Docker container by running the following commands:
 ```
 /pipelines/basecall -help
 ```
@@ -240,7 +240,7 @@ Basecalling and enrichment mapping pipelines' executables can be accessed within
 |------------------------------|-------------|------------------------------|
 | /web-utility/pipelinewebtool | 1.0.0       | /web-utility/pipelinewebtool |
 
-This webserver starts as docker container entry point command and starts serving on HTTP(8080) or HTTPS(4430) ports depending on the docker container command. (See below)
+This webserver starts as Docker container entry point command and starts serving on HTTP(8080) or HTTPS(4430) ports depending on the Docker container command. (See below)
 
 
 ## <a name="python_utility"></a> Python utility scripts
