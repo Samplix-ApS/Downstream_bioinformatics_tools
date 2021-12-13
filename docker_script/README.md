@@ -82,7 +82,7 @@ The following parameters are available for docker.py. See instruction below how 
 
 ## <a name="start_docker"></a> Initiate the Reference and Analysis tools
 To use the Reference and Analysis tools the Docker container must be initiated. When initiating the Docker container the latest Docker image will be pulled and updated.
-Provide the directory to the sequencing data as INPUT-DATA and the reference data as REFSEQ-DATA. If both sequencing data and reference data is present in the same directory, please provide the directory twice (bot _-i_ and _-r_). The directory provided in _-i_ will appear as _/input-data/_ and the directory in _-r_ will appear as _/refseq-data/_.
+Provide the directory to the sequencing data as INPUT-DATA and the reference data as REFSEQ-DATA. If both sequencing data and reference data is present in the same directory, please provide the directory twice (both _-i_ and _-r_). The directory provided in _-i_ will appear as _/input-data/_ and the directory in _-r_ will appear as _/refseq-data/_.
 
 
 To initiate the container:
