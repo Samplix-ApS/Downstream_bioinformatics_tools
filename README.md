@@ -249,7 +249,7 @@ See description of fields here:
 </p>
 
 
-Many genomes consist of the primary assembly and scaffolds, or entirely of scaffolds, i.e. the human genome consists of 24 sequences in the primary assembly and >600 scaffold (alternative reference) sequences. Mapping to this many scaffolds can quickly become meaningless, so it is recommended to merge the scaffolds to avoid  ‘losing’ information by not including them. However, be aware the inclusion of ALT contigs. ALT contigs are large variations with very long flanking sequences nearly identical to the primary human assembly. Most read mappers will give mapping quality zero to reads mapped in the flanking sequences. This will reduce the sensitivity of variant calling and many other analyses ([_Which human reference genome to use?_](http://lh3.github.io/2017/11/13/which-human-reference-genome-to-use)).
+Many genomes consist of the primary assembly and scaffolds, or entirely of scaffolds, e.g. the human genome consists of 24 sequences in the primary assembly and >600 scaffold (alternative reference) sequences. Mapping to this many scaffolds can quickly become meaningless, so it is recommended to merge the scaffolds to avoid  ‘losing’ information by not including them. However, be aware of the inclusion of ALT contigs, which are large variations with very long flanking sequences nearly identical to the primary human assembly. Most read mappers will give mapping quality zero to reads mapped in the flanking sequences. This will reduce the sensitivity of variant calling and many other analyses ([_Which human reference genome to use?_](http://lh3.github.io/2017/11/13/which-human-reference-genome-to-use)).
 </br> It is necessary to use merge scaffolds if your assembly only contains scaffolds and contigs and exceeds 40 sequence records.
 A bed-like file will be generated for the merged scaffolds, containing the position and name of the original scaffold as a feature. 
 
@@ -324,11 +324,11 @@ The prepare reference pipeline does the following:
 *	Ensures that there are not too many sequence records present in the reference
 
 **Optional** 
-* Extract sequences from a provided list of sequence record names (e.g. chromosome names) to create a filtered reference, e.g. a reference only containing the primary assembly
-* Extract sequences and rename these, by providing two lists of names, e.g. to rename NC0001.1 to chr1. The list provided are a list of sequence record names (e.g. NC_0001.1, NC002.1, etc.) and a list of replacement names (e.g. chr1, chr2, etc.).
+* Extracts sequences from a provided list of sequence record names (e.g. chromosome names) to create a filtered reference, e.g. a reference only containing the primary assembly
+* Extracts sequences and rename these, by providing two lists of names, e.g. to rename NC0001.1 to chr1. The list provided are a list of sequence record names (e.g. NC_0001.1, NC002.1, etc.) and a list of replacement names (e.g. chr1, chr2, etc.).
 
-*	Index with bwa for use in ILMN
-*	Index with samtools for use in IGV
+*	Indexes with bwa for use in ILMN
+*	Indexes with samtools for use in IGV
 
 
 1. Click _Prepare reference_ under Reference tools.
