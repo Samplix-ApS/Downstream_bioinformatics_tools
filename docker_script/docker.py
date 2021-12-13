@@ -79,6 +79,10 @@ def docker_container_ID():
                 list_exited.append((line_split[0], status, line_split[4]))
                 continue
 
+    if len(list_up) == 0:
+        print('Docker does not seem to be running.')
+        quit()
+
     df = pd.DataFrame(list_up)
     df.columns = ['Container_ID', 'Status', 'Time', 'Port_range']
     print(df)
