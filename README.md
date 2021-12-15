@@ -544,8 +544,9 @@ python3 docker.py --bash true
 ```
 
 # <a name="bash_"></a> Working with files inside of the Docker container
-To work with files inside of the Docker container you must enter Docker bash mode.
-See the [**Bash mode utilities manual**](https://github.com/Samplix-ApS/Downstream_bioinformatics_tools/tree/main/bash_mode) for further instructions. 
+It is necessary to enter into bash mode in order to manipulate the files generated inside the Docker container. Several tools are available in the Docker container.
+
+See [**bash mode**](https://github.com/Samplix-ApS/Downstream_bioinformatics_tools/blob/main/docker_script/README.md#bash_docker) for further instructions. 
 
 # <a name="help_"></a> Trouble shooting
 | Issue	| Solution |
