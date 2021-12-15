@@ -7,6 +7,7 @@
 - [Getting started](#get_started)
   - [Test data](#test_data_) 
   - [Refseq database](#refseq_database_)
+  - [Other manuals](#manuals_)
 - [Basecalling tools](#basecall_tools)
   - [Basecalling](#basecalling_)
   - [Basecalling report](#basecalling_report)
@@ -18,7 +19,7 @@
 - [Analysis tools](#analysis_tools)
   - [Enrichment mapping report](#enrich_report)
   - [Add tags to alignment](#add_tags)
-- [Other manuals](#manuals_)
+- [Working with files inside of the Docker container](#bash_)
 - [Trouble shooting](#help_)
 - [Authors](#authors_)
 
@@ -45,6 +46,19 @@ This can be used to test the different bioinformatics tools. It contains ONT fas
 
 ### <a name="refseq_database_"></a> Refseq database
 There are some references ready and available for use in our [Refseq database](http://samplix-public-data.s3-website.eu-central-1.amazonaws.com/?prefix=public-data/Refseq/). The human genomes have already been indexed with bwa for use with Illumina reads. 
+
+### <a name="manuals_"></a> Other manuals
+[Docker installation](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_install)
+
+[Docker script](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script)
+
+[Download references and annotations](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation)
+
+[Obtain primary assembly](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation#prim_)
+
+[Enrichment mapping report manual](https://github.com/Samplix-ApS/Downstream_bioinformatics_tools/tree/main/Emap_report_manual)
+
+[Viewing BAM files in IGV](https://github.com/Samplix-ApS/Downstream_bioinformatics_tools/tree/main/viewing_bam_files_ind_IGV)
 
 ## <a name="basecall_tools"></a> Basecalling tools
 <p align="center">
@@ -383,8 +397,9 @@ See description of fields here:
 
 ## <a name="analysis_tools"></a> Analysis tools
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/145797397-f54b52dd-706c-4c9e-960f-2eb5cec9882b.png" >
+<img src="https://user-images.githubusercontent.com/60882704/146193939-8870f0dc-8aaa-49dd-b138-dbc955f29b5d.png" >
 </p>
+
 
 
 <p align="center">
@@ -511,41 +526,32 @@ See description of fields here:
 <img src="https://user-images.githubusercontent.com/60882704/141129284-3ea802f6-22c5-454b-a2ed-fef4497eb555.png" >
 </p>
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/60882704/146195395-d8865d56-9650-4648-b95c-e5698a520a7a.png" >
+</p>
+
+
 Add tags to alignment (SAM/BAM) files to ease viewing in IGV. Especially useful when working with pseudogenes and inserts. See [**Add tags to alignment manual**](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/viewing_bam_files_ind_IGV#add_tag).
 
+1. Enter the running Docker container in bash mode:
+``` 
+python3 docker.py --bash true 
+```
 
-1. Click _Add tags to alignment_ under Analysis tools.
+2. Run the add tags to alignment script on your BAM file:
+```
+/web-utility/scripts/add_SAM_tag.py -i BAM-file 
+```
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141099272-14f5cdea-27f5-430e-bab8-fdcfb5960183.png" >
-</p>
-
-
-2. Fill out the form.
-
-<p align="center">
-<img src="https://user-images.githubusercontent.com/60882704/141100058-8de36202-672f-4fdd-b7ba-26b29069c21f.png" >
-</p>
-
-
-See description of fields here:
-
-| Field	| Description |
-| --- | --- |
-| **BAM or SAM file** | Path to BAM or SAM file |
-| **Read name tags** | Use read names as tags |
-| **Aligned chromosome tags** | Use aligned chromosomes as tags |
-
-# <a name="manuals_"></a> Other manuals
-[Docker installation](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_install)
-
-[Docker script](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/docker_script)
-
-[Download references and annotations](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation)
-
-[Obtain primary assembly](https://github.com/Samplix-ApS/Bioinformatics_tools/tree/main/download_reference_and_annotation#prim_)
+# <a name="bash_"></a> Working with files inside of the Docker container
+To work with files inside of the Docker container you must enter Docker bash mode.
+See the [**Bash mode utilities manual**](https://github.com/Samplix-ApS/Downstream_bioinformatics_tools/tree/main/bash_mode) for further instructions. 
 
 # <a name="help_"></a> Trouble shooting
+| Issue	| Solution |
+| --- | --- |
+| Permission denied | If you get permission denied when trying to run commands on the output files, try to enter into Docker bash mode. Another solution is to copy your file. |
+
 Contact bioinformatics@samplix.com
 
 # <a name="authors_"></a> Authors
