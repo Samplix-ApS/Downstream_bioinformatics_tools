@@ -146,7 +146,11 @@ with the following parameters:
 
 ## <a name="bash_docker"></a> Enter bash mode
 The Docker container has a bash mode allowing you to work within the Docker container. You will start in the _/input-data/_ directory. 
+
 The Docker container must first be up and running. 
+
+It is necessary to enter into bash mode in order to manipulate the files generated inside the Docker container. Several tools are available in the Docker container, see [**available tools**](https://github.com/Samplix-ApS/Downstream_bioinformatics_tools/tree/main/docker_install#avail_tools).
+
 
 To initiate bash mode:
 ```
