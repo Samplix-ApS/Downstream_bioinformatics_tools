@@ -17,11 +17,13 @@
   - [Other Docker commands](#other_cmds)
 - [Mount points](#mount_points)
 - [Internal webserver ports](#internal_web_ports)
-- [Available tools](#avail_tools)
+- [Available tools in Docker bash mode](#avail_tools)
   - [Bioinformatics tools](#bioinfo_tools)
-  - [Pipelines](#pipelines_) 
-  - [Web utility](#web_utility_)
-  - [Python utility scripts](#python_utility)
+    - [Python utility scripts](#python_utility)
+  - [Other available tools](#other_tools_)
+    - [Pipelines](#pipelines_) 
+    - [Web utility](#web_utility_)
+  - 
 - [Trouble shooting](#help_)
 - [Authors](#authors_)
 
@@ -188,42 +190,60 @@ docker rmi [image id]
 | 8080     | Internal HTTP port. By default web server will start on this port                                |
 | 4430     | Internal HTTPS port. When web server is started in secure mode it will start serving at this port. |
 
-# <a name="avail_tools"></a> Available tools
+# <a name="avail_tools"></a> Available tools in Docker bash mode
 
 The Docker image _**samplix/samplix_analysis_tools**_ is based on
 _**debian:latest**_ docker image. Following is a non exhaustive list of
 tools available in the image.
 
+To run the tools you must enter [**bash mode**](https://github.com/Samplix-ApS/Downstream_bioinformatics_tools/tree/main/docker_script#bash_docker) in the running Docker container.
+
 ## <a name="bioinfo_tools"></a> Bioinformatics tools
 
-| **Tool**                             | **Version**         | **Description**                                        |
-|--------------------------------------|---------------------|--------------------------------------------------------|
-| R                                    | 4.1.1               |                                                        |
-| python3                              | 3.9.5               |                                                        |
-| /ont-guppy/bin/guppy_basecaller      | 5.0.15              | Available at path /ont-guppy/bin/guppy_basecaller      |
-| nvidia cuda                          | 11.4.2              |                                                        |
-| bedtools                             | 2.30.0              |                                                        |
-| samtools                             | 1.13                |                                                        |
-| minimap2                             | 2.17-r941           |                                                        |
-| fastqc                               | 0.11.9              |                                                        |
-| /usr/share/java/trimmomatic-0.39.jar | 0.39                | Available at path /usr/share/java/trimmomatic-0.39.jar |
-| bwa                                  | 0.7.17-r1188        |                                                        |
-| soffice                              | 7.2.1.2 20(Build:2) | Libreoffice                                            |
-| golang-go                            |                     |                                                        |
-| conda                                | 4.10.3              |                                                        |
-| pip                                  | 21.1.3              |                                                        |
-| pycoQC                               | 2.5.2               |                                                        |
-| bioawk                               | 20110810            |                                                        |
-| qualimap                             | 2.2.2-dev           |                                                        |
-| java                                 | 11.0.1              |                                                        |
-| seqkit                               | 2.0.0               |                                                        |
+| **Tool**                             | **Version**         | **Path**                             |
+|--------------------------------------|---------------------|--------------------------------------|
+| bedtools                             | 2.30.0              | bedtools                             |
+| bioawk                               | 20110810            | bioawk                               |
+| bwa                                  | 0.7.17-r1188        | bwa                                  |
+| conda                                | 4.10.3              | conda                                |
+| fastqc                               | 0.11.9              | fastqc                               |
+| guppy_basecaller                     | 5.0.15              | /ont-guppy/bin/guppy_basecaller      |
+| java                                 | 11.0.1              | java                                 |
+| minimap2                             | 2.17-r941           | minimap2                             |
+| pip                                  | 21.1.3              | pip                                  |
+| pycoQC                               | 2.5.2               | pycoQC                               |
+| python3                              | 3.9.5               | python3                              |
+| qualimap                             | 2.2.2-dev           | qualimap                             |
+| R                                    | 4.1.1               | R                                    |
+| samtools                             | 1.13                | samtools                             |
+| seqkit                               | 2.0.0               | seqkit                               |
+| soffice                              | 7.2.1.2 20(Build:2) | soffice                              |
+| trimmomatic                          | 0.39                | /usr/share/java/trimmomatic-0.39.jar | 
 
-## <a name="pipelines_"></a> Pipelines
 
-| **Pipeline**                | **Version** | **Description**                          |
-|-----------------------------|-------------|------------------------------------------|
-| /pipelines/basecall         | 2.0.0       | /pipelines/basecall                      |
-| /pipelines/analysispipeline | 2.0.0       | Available at /pipelines/analysispipeline |
+### <a name="python_utility"></a> Python utility scripts
+
+| **Script**         | **Description**                                             | **Path**                                |
+|--------------------|-------------------------------------------------------------|-----------------------------------------|
+| add_SAM_tag.py     | To add tags to alignment                                    | /web-utility/scripts/add_SAM_tag.py     |
+| merge_scaffolds.py | To merge scaffolds                                          | /web-utility/scripts/merge_scaffolds.py |
+| prep_reference.py  | To prepare reference for enrichment mapping report pipeline | /web-utility/scripts/prep_reference.py  |
+| gff_rename.py      | To rename chromosomes in annotation                         | /web-utility/scripts/gff_rename.py      | 
+
+
+## <a name="other_tools_"></a> Other available tools
+| **Tool**                             | **Version**         |
+|--------------------------------------|---------------------|
+| golang-go                            |                     |
+| nvidia cuda                          | 11.4.2              |
+
+
+### <a name="pipelines_"></a> Pipelines
+
+| **Pipeline**                | **Version** |
+|-----------------------------|-------------|
+| /pipelines/basecall         | 2.0.0       |
+| /pipelines/analysispipeline | 2.0.0       |
 
 Basecalling and enrichment mapping pipelines' executables can be accessed within Docker container by running the following commands:
 ```
@@ -234,23 +254,16 @@ Basecalling and enrichment mapping pipelines' executables can be accessed within
 ```
 
 
-## <a name="web_utility_"></a> Web utility
+### <a name="web_utility_"></a> Web utility
 
-| **Webserver**                | **Version** | **Description**              |
-|------------------------------|-------------|------------------------------|
-| /web-utility/pipelinewebtool | 1.0.0       | /web-utility/pipelinewebtool |
+| **Webserver**                | **Version** |
+|------------------------------|-------------|
+| /web-utility/pipelinewebtool | 1.0.0       |
 
 This webserver starts as Docker container entry point command and starts serving on HTTP(8080) or HTTPS(4430) ports depending on the Docker container command. (See below)
 
 
-## <a name="python_utility"></a> Python utility scripts
 
-| **Script**                              | **Description** |
-|-----------------------------------------|-----------------|
-| /web-utility/scripts/add_SAM_tag.py     | To add tags to alignment                |
-| /web-utility/scripts/merge_scaffolds.py | To merge scaffolds                |
-| /web-utility/scripts/prep_reference.py  | To prepare reference for enrichment mapping report pipeline                |
-|/web-utility/scripts/gff_rename.py | To rename chromosomes in annotation |
 
 
 # <a name="help_"></a> Troubleshooting
