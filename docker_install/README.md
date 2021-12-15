@@ -23,7 +23,6 @@
   - [Other available tools](#other_tools_)
     - [Pipelines](#pipelines_) 
     - [Web utility](#web_utility_)
-  - 
 - [Trouble shooting](#help_)
 - [Authors](#authors_)
 
