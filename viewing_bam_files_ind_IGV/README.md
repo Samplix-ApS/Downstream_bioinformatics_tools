@@ -96,7 +96,7 @@ If the names of the primary assembly/chromosomes have been changed in the refere
 
 Use the following command:
 ```
-python3 /webutility/scripts/gff_rename.py -i ANNOTATION_FILE -c chromosome_names -r replacement_name <optional>
+python /web-utility/scripts/gff_rename.py -i ANNOTATION_FILE -c chromosome_names -r replacement_name <optional>
 ```
 It can be run with the following parameters:
 ```
