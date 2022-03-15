@@ -92,8 +92,8 @@ Qualimap is a platform-independent application written in Java and R. It provide
 | Enrichment custom region (fold) | Sequencing enrichment for the custom region |
 | Enrichment 10 kb region (fold)  | Sequencing enrichment for the 10 kb region |
 | Enrichment ROI (fold) | Sequencing enrichment for the ROI  |
-| N50 mapped readlength (bp) | 50% quartile of the cummulative sum of read lengths for mapped primary reads |
-| N50 custom region readlength (bp) | N50 the custom (default 100 kb) region mapped primary reads  |
+| N50 mapped readlength (bp) | N50 for the  mapped primary reads |
+| N50 custom region readlength (bp) | N50 for the custom (default 100 kb) region mapped primary reads  |
 | N50 10 kb region readlength (bp) | N50 for the 10 kb region  |
 | N50 ROI readlength (bp) | N50 for the ROI mapped primary reads |
 | Median mapped readlength (bp) | Median readlength of the primary mapped reads to reference |
