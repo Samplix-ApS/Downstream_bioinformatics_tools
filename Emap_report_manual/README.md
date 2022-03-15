@@ -6,7 +6,9 @@
   - [BWA MEM](#ilmn_bwa)
 - [SAMtools](#samtools_)
 - [Qualimap: Calling genome coverage](#quali_cov)
-- [Generated files](#output_)
+- [Generated files](#output_files_)
+- [Generated table](#output_table_)
+- [Definition of terms](#dict_terms_)
 - [References](#ref_)
 - [Trouble shooting](#help_)
 - [Authors](#authors_)
@@ -58,7 +60,7 @@ The SAM header ([Figure 2](#fig2)) for each read alignment has 11 mandatory fiel
 # <a name="quali_cov"></a>Qualimap: Calling genome coverage
 Qualimap is a platform-independent application written in Java and R. It provides fast analysis across the reference genome of mapping coverage. It gives similar results as BEDtools genomecov, however is tremendously faster. 
 
-# <a name="output_"></a>Generated files
+# <a name="output_files_"></a>Generated files
 | File name | Description|
 |---|---|
 | output_forward_paired.fq.gz (ILMN) |	Trimmed fastq file containing only forward paired end reads | 
@@ -70,6 +72,54 @@ Qualimap is a platform-independent application written in Java and R. It provide
 | prim.map.RoT10.1.bam	| Bam file containing primary reads for 10 kb region around detection sequence |
 | prim.sup.map.Chr.sort.bam |	Sorted bam file containing primary and supplementary reads for target chromosome |
 | prim.sup.map.sort.bam |	Sorted bam file containing primary and supplementary reads |
+
+# <a name="output_table_"></a>Generated table
+
+| Title | Definition |
+|---|---|
+|Total bases sequenced (bp)| Sum of bases found in the provided input file |
+|Total reads (reads) | Sum of reads found in the provided input file |
+| Total mapped reads (reads) | Sum of reads that mapped primary to the provided reference |
+| Total reads mapped to custom region (reads) | Sum of reads that mapped primary to the custom region  | 
+| Total reads mapped to 10 kb region | Sum of reads that mapped primary to the 10 kb region | 
+| Total reads mapped to ROI (reads) | Sum of reads taht mapped primary to the provided region of intereste (ROI) |
+| Percentage mapped reads to reference (%) | Total mapped reads divided by total reads | 
+| Percentage mapped reads to custom region (%) | Total reads mapped to custom region divided by total mapped reads | 
+| Percentage mapped reads to 10 kb region(%) | Total reads mapped to 10 kb region divided by total mapped reads |
+| Percentage mapped reads to ROI (%) | Total reads mapped to ROI divided by total mapped reads |
+| Percentage of bases mapped primary (%) | Sum of bases in the aligned part of the reads which mapped primary (ergo, sum of bases in primary mapped reads without the sofclipped parts)
+| Percentage of bases mapped primary incl. suppl. (%) | Sum of bases in the algined part of the reads which mapped primary or supplementary (ergo sum of bases in primary and supplementary reads without the softclipped parts)
+| Enrichment custom region (fold) | Sequencing enrichment for the custom region |
+| Enrichment 10 kb region (fold)  | Sequencing enrichment for the 10 kb region |
+| Enrichment ROI (fold) | Sequencing enrichment for the ROI  |
+| N50 mapped readlength (bp) | 50% quartile of the cummulative sum of read lengths for mapped primary reads |
+| N50 custom region readlength (bp) | N50 the custom (default 100 kb) region mapped primary reads  |
+| N50 10 kb region readlength (bp) | N50 for the 10 kb region  |
+| N50 ROI readlength (bp) | N50 for the ROI mapped primary reads |
+| Median mapped readlength (bp) | Median readlength of the primary mapped reads to reference |
+
+# <a name="dict_terms_"></a>Definition of terms
+
+|Term | Definition |
+|---|---|
+|	10 kb region 	|	5 kb region to either side of the provided detection assay. Calculated for each provided detection assay		|
+|	Aligning 	|	Mapping or alignment is the process of aligning reads to a reference genome. A mapper (e.g. minimap2), takes as input a reference genome and the reads. It aims to align each read to the reference genome, allowing for mismatches, indels and softclipping (at the beginning and end of the read). The mapper calculates an alignment score based on matches (usually the longer the stretch of matches, the better the score), and penalizes for introduction of mismatches and indels. The mapper also calculates a mapping score based on how confident it is that the read comes from the reported position. 		|
+|	Alignment score 	|	Alignment is finding the exact diference between two sequences. The mapper calculates the alignment score bases on matches (usually the longer the stretch of matches, the better the score) and penalizes for the introduction of mismatches and indels. 		|
+|	Custom region	|	Custom region provided by the user. Default is 50 kb to either side of the first provided detection assay		|
+|	Mapper	|	Alignment or mapping software such as minimap2 (for long reads) and BWA (for short reads)		|
+|	Mapping	|	See aligning 		|
+|	Mapping score 	|	Mapping is finding the approximate origin of a sequence. The mapper assignes mapping scores based on the confindence it has in that the read comes from the reported position. Ergo multimapping reads will often have low mapping scores, as the mapper cannot determine the origin of the read  		|
+|	Mapping score 	|	Mapping is finding the approximate origin of a sequence. The mapper assignes mapping scores based on the confindence it has in that the read comes from the reported position. Ergo multimapping reads will often have low mapping scores, as the mapper cannot determine the origin of the read  		|
+|	N50	|	50% quartile of the cummulative sum of read lengths 		|
+|	Primary alignment 	|	Usually the alignment with the best alignment and mapping score.  		|
+|	Raw read 	|	A read for which there is no alignment or mapping information, ergo it is not known if the read aligns to a reference 		|
+|	Read 	|	A read is an inferred sequence of bases corresponding to a DNA fragment obtained from a sequencing device. 		|
+|	ROI	|	Region of intereste as defined by the user		|
+|	Secondary alignment 	|	A read may align ambiguously to multiple locations in the reference. Only one of the multiple read alignments is considered primary, usually the one with the best alignment score. All other alignments are considered secondary .  		|
+|	Sequencing enrichment	|	Percentage of mapped reads divided by the target size over the reference genome size		|
+|	Softclipping 	|	Bases in the 5' and 3' of the reads which are not part of the alignment at the mapped position. For chimeric reads, the supplementary alignments are usally found in the softclipped parts of the primary alignments 		|
+|	Supplementary alignment 	|	Supplementary alignments contain the chimeric alignments, which are represented as a set of linear alignment that do no have large overlaps. Typically one linear alignment is considered the representative alignment, and is designated as the primary alignment, the remain become supplementary alignments.  		|
+
 
 
 # <a name="ref_"></a>References
