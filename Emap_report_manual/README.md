@@ -109,16 +109,15 @@ Qualimap is a platform-independent application written in Java and R. It provide
 |	Mapper	|	Alignment or mapping software such as minimap2 (for long reads) and BWA (for short reads)		|
 |	Mapping	|	See aligning 		|
 |	Mapping score 	|	Mapping is finding the approximate origin of a sequence. The mapper assignes mapping scores based on the confindence it has in that the read comes from the reported position. Ergo multimapping reads will often have low mapping scores, as the mapper cannot determine the origin of the read  		|
-|	Mapping score 	|	Mapping is finding the approximate origin of a sequence. The mapper assignes mapping scores based on the confindence it has in that the read comes from the reported position. Ergo multimapping reads will often have low mapping scores, as the mapper cannot determine the origin of the read  		|
 |	N50	|	50% quartile of the cummulative sum of read lengths 		|
 |	Primary alignment 	|	Usually the alignment with the best alignment and mapping score.  		|
 |	Raw read 	|	A read for which there is no alignment or mapping information, ergo it is not known if the read aligns to a reference 		|
 |	Read 	|	A read is an inferred sequence of bases corresponding to a DNA fragment obtained from a sequencing device. 		|
-|	ROI	|	Region of intereste as defined by the user		|
-|	Secondary alignment 	|	A read may align ambiguously to multiple locations in the reference. Only one of the multiple read alignments is considered primary, usually the one with the best alignment score. All other alignments are considered secondary .  		|
-|	Sequencing enrichment	|	Percentage of mapped reads divided by the target size over the reference genome size		|
+|	ROI	|	Region of interest as defined and provided by the user		|
+|	Secondary alignment 	|	A read may align ambiguously to multiple locations in the reference. Only one of the multiple read alignments is considered primary, usually the one with the best alignment score and mapping score. All other alignments are considered secondary .  		|
+|	Sequencing enrichment	|	Percentage of target mapped reads divided by the target size over the reference genome size		|
 |	Softclipping 	|	Bases in the 5' and 3' of the reads which are not part of the alignment at the mapped position. For chimeric reads, the supplementary alignments are usally found in the softclipped parts of the primary alignments 		|
-|	Supplementary alignment 	|	Supplementary alignments contain the chimeric alignments, which are represented as a set of linear alignment that do no have large overlaps. Typically one linear alignment is considered the representative alignment, and is designated as the primary alignment, the remain become supplementary alignments.  		|
+|	Supplementary alignment 	|	Supplementary alignments contain the chimeric alignments, which are represented as a set of linear alignment that do no have large overlaps. Typically one linear alignment is considered the representative alignment (usually the one with the highest alignments and mapping score), and is designated as the primary alignment, the remainder become supplementary alignments.  		|
 
 
 
