@@ -20,6 +20,7 @@
   - [Enrichment mapping report](#enrich_report)
   - [Add tags to alignment](#add_tags)
 - [Working with files inside of the Docker container](#bash_)
+- [Pacbio reads](#pacbio_)
 - [Trouble shooting](#help_)
 - [Authors](#authors_)
 
@@ -548,12 +549,31 @@ It is necessary to enter into bash mode in order to manipulate the files generat
 
 See [**bash mode**](https://github.com/Samplix-ApS/Downstream_bioinformatics_tools/blob/main/docker_script/README.md#bash_docker) for further instructions. 
 
+# <a name="pacbio_"></a> Pacbio reads
+Enter docker [**bash mode**](https://github.com/Samplix-ApS/Downstream_bioinformatics_tools/blob/main/docker_script/README.md#bash_docker) to gain access to minimap2.
+To map pacbio reads, run the following command:
+```
+minimap2 -ax <map-hifi OR map-pb> -t <num> -o output.sam REF.fa PACBIO-READS.fq
+```
+with the following parameters:
+```
+-a    Generate CIGAR and output alignments in the SAM format. Minimap2 outputs in PAF by default.
+-x    Choose type of reads. 
+      Use map-hifi to align PacBio high-fidelity (HiFi) reads to a reference genome. 
+      Use map-pb to lign older PacBio continuous long (CLR) reads to a reference genome
+-t    Number of threads to use.
+-o    Output file. Must be output.sam to function in downstream pipeline.
+```
+Once the mapping is done, provide the path of the **_output.sam_** in the Advanced Settings in the Enrichment mapping report.
+
 # <a name="help_"></a> Trouble shooting
 | Issue	| Solution |
 | --- | --- |
 | Permission denied | If you get permission denied when trying to run commands on the output files, try to enter into Docker bash mode. Another solution is to copy your file. |
 
-Contact bioinformatics@samplix.com
+
+
+Contact us at samplix.com
 
 # <a name="authors_"></a> Authors
 Camille Johnston (CAJ)
