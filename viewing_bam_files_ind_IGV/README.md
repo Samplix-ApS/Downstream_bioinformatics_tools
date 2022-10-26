@@ -197,7 +197,7 @@ To view two different sites in the alignment, it is recommended to save the IGV 
 [SAMtools](http://www.htslib.org/doc/samtools.html)
 
 ## <a name="help_"></a> Trouble shooting
-Contact bioinformatics@samplix.com
+Contact us at samplix.com
 
 ## <a name="authors_"></a> Authors
 Camille Johnston (CAJ)
